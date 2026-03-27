@@ -1,0 +1,95 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap');
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #0A0A0A;
+  --color-black: #0A0A0A;
+  --color-accent: #C9A84C;
+  --color-accent-light: #E4C97A;
+  --color-accent-dark: #9E7B2E;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-accent: #C9A84C;
+  --color-accent-light: #E4C97A;
+  --color-accent-dark: #9E7B2E;
+  --font-sans: 'DM Sans', system-ui, sans-serif;
+  --font-serif: 'Cormorant Garamond', Georgia, serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: 'DM Sans', system-ui, sans-serif;
+}
+
+.font-serif {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+}
+
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.animate-marquee {
+  animation: marquee 40s linear infinite;
+}
+
+@keyframes marquee-reverse {
+  0% { transform: translateX(-50%); }
+  100% { transform: translateX(0); }
+}
+
+.animate-marquee-reverse {
+  animation: marquee-reverse 40s linear infinite;
+}
+
+/* Fond animé À Propos - transition rapide mais douce entre les deux images */
+@keyframes fade-bg-1 {
+  0%, 45% { opacity: 1; }
+  52% { opacity: 0; }
+  97% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+@keyframes fade-bg-2 {
+  0%, 45% { opacity: 0; }
+  52% { opacity: 1; }
+  97% { opacity: 1; }
+  100% { opacity: 0; }
+}
+
+.animate-fade-bg-1 {
+  animation: fade-bg-1 5s ease-in-out infinite;
+}
+
+.animate-fade-bg-2 {
+  animation: fade-bg-2 5s ease-in-out infinite;
+}
+
+/* Corrige nextjs-portal (outil dev Next.js) - évite les problèmes de scroll et position 0x0 */
+nextjs-portal {
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  bottom: 0 !important;
+  z-index: 2147483647;
+  width: 100% !important;
+  height: 100% !important;
+  min-width: 0 !important;
+  min-height: 0 !important;
+  overflow: visible !important;
+  pointer-events: none;
+}
+nextjs-portal > * {
+  pointer-events: auto;
+}
