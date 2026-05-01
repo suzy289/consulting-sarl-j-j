@@ -20,7 +20,6 @@ const fadeUp = {
 export function AboutSection() {
   const { t } = useI18n();
   const waConsult = `${WHATSAPP_LINK}?text=${encodeURIComponent(t("home.about.waConsult"))}`;
-  const waMission = `${WHATSAPP_LINK}?text=${encodeURIComponent(t("home.about.waMission"))}`;
 
   const aboutSubtitle = t("home.about.subtitle").replace("{name}", SITE.name);
   const aboutP1 = t("home.about.p1").replaceAll("{name}", SITE.name);

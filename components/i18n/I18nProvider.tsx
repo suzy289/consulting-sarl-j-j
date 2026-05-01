@@ -26,8 +26,11 @@ export function I18nProvider({ children }: { children: React.ReactNode }) {
   const [locale, setLocaleState] = useState<Locale>(DEFAULT_LOCALE);
 
   useEffect(() => {
-    const fromCookie = normalizeLocale(readCookie(LOCALE_COOKIE));
-    setLocaleState(fromCookie);
+    const id = requestAnimationFrame(() => {
+      const fromCookie = normalizeLocale(readCookie(LOCALE_COOKIE));
+      setLocaleState(fromCookie);
+    });
+    return () => cancelAnimationFrame(id);
   }, []);
 
   useEffect(() => {

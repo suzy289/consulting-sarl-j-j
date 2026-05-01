@@ -14,11 +14,11 @@ export function TestimonialsSection() {
 
   const next = useCallback(() => {
     setCurrent((p) => (p + 1) % testimonials.length);
-  }, []);
+  }, [testimonials.length]);
 
   const prev = useCallback(() => {
     setCurrent((p) => (p - 1 + testimonials.length) % testimonials.length);
-  }, []);
+  }, [testimonials.length]);
 
   useEffect(() => {
     const t = setInterval(next, 6000);

@@ -42,7 +42,7 @@ export function ServicesSection() {
     const max = services.length - 1;
     const i = Math.round(el.scrollLeft / step);
     setActive(Math.min(max, Math.max(0, i)));
-  }, [step]);
+  }, [step, services.length]);
 
   useEffect(() => {
     const el = scrollRef.current;
