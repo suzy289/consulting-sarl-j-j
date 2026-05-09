@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
 import { partners } from "@/lib/partners";
+import { PartnerRowScroller } from "@/components/references/PartnerRowScroller";
 import { getLocaleFromCookies } from "@/lib/i18n-server";
 import { getReferencesCopy } from "@/lib/references";
 import { t } from "@/lib/i18n";
@@ -118,7 +119,7 @@ export default async function ReferencesPage() {
         <div className="absolute inset-0 bg-black/60" aria-hidden />
         <div className="reference-stars-layer" aria-hidden />
         <div className="reference-stars-layer reference-stars-layer-fast" aria-hidden />
-        <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-16 py-24 w-full">
+        <div className="relative z-10 mx-auto w-full max-w-7xl px-4 py-16 sm:px-6 md:py-20 lg:px-16 lg:py-24">
           <div
             className="pointer-events-none absolute -bottom-14 -left-10 z-10 h-32 w-64 rounded-t-full border-[3px] border-white border-b-0 bg-white"
             aria-hidden
@@ -157,9 +158,9 @@ export default async function ReferencesPage() {
         </div>
       </section>
 
-      <section className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-6 lg:px-16">
-          <div className="mb-12 text-center">
+      <section className="py-12 md:py-20 bg-white">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-16">
+          <div className="mb-8 text-center md:mb-12">
             <h2 className="font-serif text-2xl font-semibold text-[#0A0A0A]">
               {copy.partnersTitle}
             </h2>
@@ -167,71 +168,10 @@ export default async function ReferencesPage() {
               {copy.partnersSubtitle}
             </p>
           </div>
-          <div className="space-y-6">
-            {partnerRows.map((row, rowIndex) => {
-              const animationClass =
-                rowIndex === 0
-                  ? "animate-marquee"
-                  : rowIndex === 1
-                    ? "animate-marquee-reverse"
-                    : "animate-marquee-slow";
-
-              const duplicatedRow = [...row, ...row];
-
-              return (
-                <div
-                  key={`partner-row-${rowIndex}`}
-                  className="overflow-hidden rounded-2xl border border-gray-200 bg-[#F8F8F8] py-4"
-                >
-                  <div className={`flex w-max gap-4 ${animationClass}`}>
-                    {duplicatedRow.map((p, i) => (
-                      <div
-                        key={`${p.id}-${i}`}
-                        className="group relative flex w-[280px] shrink-0 flex-col items-center rounded-lg border border-gray-200 bg-white p-6 cursor-default"
-                      >
-                        {p.logo ? (
-                          <>
-                            <div className="relative mb-4 flex h-20 w-40 items-center justify-center">
-                              <Image
-                                src={p.logo}
-                                alt={p.name}
-                                width={160}
-                                height={80}
-                                className="max-h-20 w-auto object-contain"
-                                style={{ width: "auto", height: "auto" }}
-                                loading={rowIndex === 0 && i < 3 ? "eager" : undefined}
-                              />
-                            </div>
-                            <h3 className="text-center font-semibold text-[#0A0A0A]">
-                              {p.shortName || p.name}
-                            </h3>
-                            {p.services && (
-                              <p className="mt-2 line-clamp-2 text-center text-sm leading-relaxed text-gray-600">
-                                {p.services}
-                              </p>
-                            )}
-                          </>
-                        ) : (
-                          <p className="text-center font-medium text-gray-700">{p.name}</p>
-                        )}
-                        {(p.name || p.services) && (
-                          <div className="pointer-events-none absolute inset-0 z-10 flex flex-col items-center justify-center rounded-lg bg-black/50 p-4 text-center opacity-0 backdrop-blur-[2px] transition-opacity duration-200 group-hover:opacity-100">
-                            <p className="mb-2 text-sm font-semibold text-white drop-shadow-md">
-                              {p.name}
-                            </p>
-                            {p.services && (
-                              <p className="text-xs leading-relaxed text-white/95 drop-shadow-md">
-                                {p.services}
-                              </p>
-                            )}
-                          </div>
-                        )}
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              );
-            })}
+          <div className="space-y-4 md:space-y-6">
+            {partnerRows.map((row, rowIndex) => (
+              <PartnerRowScroller key={`partner-row-${rowIndex}`} row={row} rowIndex={rowIndex} />
+            ))}
           </div>
           <div className="mt-10 flex justify-center">
             <Link
@@ -245,9 +185,9 @@ export default async function ReferencesPage() {
         </div>
       </section>
 
-      <section className="py-20 bg-[#F5F5F5]">
-        <div className="max-w-7xl mx-auto px-6 lg:px-16">
-          <div className="mb-12 text-center">
+      <section className="py-12 md:py-20 bg-[#F5F5F5]">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-16">
+          <div className="mb-8 text-center md:mb-12">
             <h2 className="font-serif text-2xl font-semibold text-[#0A0A0A]">
               {copy.clientsTitle}
             </h2>

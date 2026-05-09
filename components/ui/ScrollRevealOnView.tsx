@@ -22,6 +22,7 @@ const EXCLUDED_ANCESTOR_SELECTOR = [
   ".service-chips-marquee",
   ".service-chips-marquee-x",
   ".animate-vision-images-marquee",
+  ".animate-formations-mission-marquee",
 ].join(", ");
 
 export function ScrollRevealOnView() {

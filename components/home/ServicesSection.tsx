@@ -33,6 +33,7 @@ export function ServicesSection() {
   const { t, locale } = useI18n();
   const services = useMemo(() => getServicesForLocale(locale), [locale]);
   const scrollRef = useRef<HTMLDivElement>(null);
+  const pauseAutoplayRef = useRef(false);
   const [active, setActive] = useState(0);
   const step = CARD_W + GAP;
 
@@ -51,6 +52,48 @@ export function ServicesSection() {
     el.addEventListener("scroll", updateActiveFromScroll, { passive: true });
     return () => el.removeEventListener("scroll", updateActiveFromScroll);
   }, [updateActiveFromScroll]);
+
+  /** À partir de `md` : défilement automatique ; sur mobile, navigation aux flèches uniquement. */
+  useEffect(() => {
+    const mq = window.matchMedia("(min-width: 768px)");
+    /** `window.setInterval` renvoie un `number` côté navigateur (cf. lib DOM). */
+    let intervalId: number | undefined;
+
+    const tick = () => {
+      if (pauseAutoplayRef.current || document.hidden) return;
+      const el = scrollRef.current;
+      if (!el) return;
+      const maxScroll = el.scrollWidth - el.clientWidth;
+      if (maxScroll <= 0) return;
+      const atEnd = el.scrollLeft >= maxScroll - 8;
+      if (atEnd) {
+        el.scrollTo({ left: 0, behavior: "smooth" });
+      } else {
+        el.scrollBy({ left: step, behavior: "smooth" });
+      }
+    };
+
+    const start = () => {
+      if (!mq.matches) return;
+      if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+      intervalId = window.setInterval(tick, 4200);
+    };
+
+    const onMqChange = () => {
+      if (intervalId !== undefined) {
+        window.clearInterval(intervalId);
+        intervalId = undefined;
+      }
+      if (mq.matches) start();
+    };
+
+    onMqChange();
+    mq.addEventListener("change", onMqChange);
+    return () => {
+      mq.removeEventListener("change", onMqChange);
+      if (intervalId !== undefined) window.clearInterval(intervalId);
+    };
+  }, [step]);
 
   const scrollByDir = (dir: -1 | 1) => {
     const el = scrollRef.current;
@@ -97,7 +140,7 @@ export function ServicesSection() {
 
       <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         {/* Bloc intro sombre */}
-        <div className="relative mb-14 overflow-hidden rounded-3xl bg-gradient-to-br from-zinc-900 via-black to-zinc-900 p-10 shadow-2xl sm:p-12 lg:mb-16">
+        <div className="relative mb-10 overflow-hidden rounded-2xl bg-gradient-to-br from-zinc-900 via-black to-zinc-900 p-6 shadow-2xl sm:mb-14 sm:rounded-3xl sm:p-10 md:p-12 lg:mb-16">
           <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_top_left,rgba(201,168,76,0.22),transparent_52%)] opacity-80" />
           <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_right,rgba(201,168,76,0.14),transparent_50%)] opacity-70" />
           <div className="pointer-events-none absolute left-0 top-0 h-px w-full bg-gradient-to-r from-transparent via-[#C9A84C] to-transparent opacity-70" />
@@ -112,28 +155,36 @@ export function ServicesSection() {
           </div>
         </div>
 
-        {/* Carrousel services */}
-        <div className="relative -mx-4 px-4">
+        {/* Carrousel services : autoplay ≥ md ; &lt; md flèches + swipe */}
+        <div
+          className="relative -mx-4 px-4"
+          onMouseEnter={() => {
+            pauseAutoplayRef.current = true;
+          }}
+          onMouseLeave={() => {
+            pauseAutoplayRef.current = false;
+          }}
+        >
           <button
             type="button"
             aria-label={t("home.services.prev")}
             onClick={() => scrollByDir(-1)}
-            className="jj-btn-slide jj-btn-slide-nav-disk group absolute left-0 top-1/2 z-20 hidden h-12 w-12 -translate-y-1/2 items-center justify-center rounded-full bg-white shadow-xl md:flex"
+            className="jj-btn-slide jj-btn-slide-nav-disk group absolute left-0.5 top-1/2 z-20 flex h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full border border-gray-200/80 bg-white/95 shadow-lg sm:left-1 sm:h-11 sm:w-11 md:hidden"
           >
-            <ChevronLeft className="h-6 w-6 text-[#0A0A0A] transition-transform transition-colors group-hover:scale-110 group-hover:text-white" />
+            <ChevronLeft className="h-5 w-5 text-[#0A0A0A] transition-transform transition-colors group-hover:scale-110 group-hover:text-white sm:h-6 sm:w-6" />
           </button>
           <button
             type="button"
             aria-label={t("home.services.next")}
             onClick={() => scrollByDir(1)}
-            className="jj-btn-slide jj-btn-slide-nav-disk group absolute right-0 top-1/2 z-20 hidden h-12 w-12 -translate-y-1/2 items-center justify-center rounded-full bg-white shadow-xl md:flex"
+            className="jj-btn-slide jj-btn-slide-nav-disk group absolute right-0.5 top-1/2 z-20 flex h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full border border-gray-200/80 bg-white/95 shadow-lg sm:right-1 sm:h-11 sm:w-11 md:hidden"
           >
-            <ChevronRight className="h-6 w-6 text-[#0A0A0A] transition-transform transition-colors group-hover:scale-110 group-hover:text-white" />
+            <ChevronRight className="h-5 w-5 text-[#0A0A0A] transition-transform transition-colors group-hover:scale-110 group-hover:text-white sm:h-6 sm:w-6" />
           </button>
 
           <div
             ref={scrollRef}
-            className="flex snap-x snap-mandatory gap-6 overflow-x-auto pb-8 pt-4 [scrollbar-width:none] md:px-14 [&::-webkit-scrollbar]:hidden"
+            className="flex snap-x snap-mandatory gap-4 overflow-x-auto pb-6 pt-3 pl-11 pr-11 [scrollbar-width:none] sm:gap-6 sm:pb-8 sm:pt-4 sm:pl-12 sm:pr-12 md:px-6 md:pl-6 md:pr-6 [&::-webkit-scrollbar]:hidden"
           >
             {services.map((service, i) => {
               const Icon = service.icon;

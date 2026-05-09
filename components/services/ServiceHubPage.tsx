@@ -13,6 +13,7 @@ import {
   IllustrationStrategy,
   IllustrationTraining,
 } from "@/components/services/hub-illustrations";
+import { FormationsMissionStrip } from "@/components/services/FormationsMissionStrip";
 
 type Props = {
   slug: ServiceHubSlug;
@@ -673,56 +674,7 @@ export function ServiceHubPage({ slug, locale }: Props) {
               ) : null}
             </div>
           ))}
-          <div className="relative -mx-6 overflow-x-clip sm:-mx-8 lg:-mx-16">
-            <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-14 bg-gradient-to-r from-white to-transparent sm:w-20" aria-hidden />
-            <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-14 bg-gradient-to-l from-white to-transparent sm:w-20" aria-hidden />
-            <div
-              className="flex w-max gap-5 py-3 pl-5 animate-formations-mission-marquee sm:gap-6 sm:pl-8"
-              aria-hidden
-            >
-              {(
-                [
-                  {
-                    src: "/images/WhatsApp%20Image%202026-04-22%20at%2014.32.01.jpeg",
-                    altKey: "hub.formations.missionMarqueeAlt1" as const,
-                  },
-                  {
-                    src: "/images/IMG-20221211-WA0089.jpg",
-                    altKey: "hub.formations.missionMarqueeAlt2" as const,
-                  },
-                ] as const
-              )
-                .concat(
-                  [
-                    {
-                      src: "/images/WhatsApp%20Image%202026-04-22%20at%2014.32.01.jpeg",
-                      altKey: "hub.formations.missionMarqueeAlt1" as const,
-                    },
-                    {
-                      src: "/images/IMG-20221211-WA0089.jpg",
-                      altKey: "hub.formations.missionMarqueeAlt2" as const,
-                    },
-                  ] as const,
-                )
-                .map((item, i) => (
-                  <div
-                    key={`${item.altKey}-${i}`}
-                    className="relative h-52 w-[min(78vw,300px)] shrink-0 overflow-hidden rounded-2xl shadow-lg ring-1 ring-[#C9A84C]/25 sm:h-56 sm:w-[22rem] md:h-60 md:w-[24rem]"
-                  >
-                    <Image
-                      src={item.src}
-                      alt=""
-                      fill
-                      className="object-cover object-center"
-                      sizes="(max-width: 768px) 78vw, 384px"
-                    />
-                  </div>
-                ))}
-            </div>
-          </div>
-          <p className="sr-only">
-            {t(locale, "hub.formations.missionMarqueeAlt1")} — {t(locale, "hub.formations.missionMarqueeAlt2")}
-          </p>
+          <FormationsMissionStrip />
         </div>
       </section>
       <RelatedAndCta

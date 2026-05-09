@@ -21,6 +21,8 @@ export const MESSAGES: Record<Locale, Messages> = {
     "nav.hubMobile.accompagnement.sub": "Business plans, prévisionnels, indicateurs.",
     "nav.hubMobile.assistance.sub": "Dossiers courants, conformité, production.",
     "nav.hubMobile.formations.sub": "Ateliers et montée en compétences.",
+    "ui.scroll.prev": "Faire défiler vers la gauche",
+    "ui.scroll.next": "Faire défiler vers la droite",
 
     "footer.contactCard.title": "Prise de contact",
     "footer.contactCard.heading": "Une question sur la gestion de votre activité",
@@ -263,7 +265,7 @@ export const MESSAGES: Record<Locale, Messages> = {
     "legal.credits.p": "Site conçu pour {name} — Yaoundé, Cameroun.",
     "meta.home.title": "J & J Consulting SARL | Cabinet d'Audit, Comptabilité & Conseil Fiscal — Yaoundé",
     "meta.home.desc":
-      "J & J Consulting SARL est votre cabinet d'audit, comptabilité, conseil fiscal et finance à Yaoundé, Cameroun. Devis gratuit. 10+ ans d'expérience.",
+      "J & J Consulting SARL est votre cabinet d'audit, comptabilité, conseil fiscal et finance à Yaoundé, Cameroun. Devis gratuit. 5 ans d'expérience.",
     "meta.about.title": "À Propos | J & J Consulting SARL — L'histoire d'un cabinet",
     "meta.about.desc":
       "Découvrez l'histoire de J & J Consulting SARL et de son fondateur. Un cabinet né de la passion et de l'amour, construit sur l'excellence.",
@@ -291,6 +293,8 @@ export const MESSAGES: Record<Locale, Messages> = {
     "nav.hubMobile.accompagnement.sub": "Plans, forecasts and KPIs.",
     "nav.hubMobile.assistance.sub": "Day-to-day files, compliance, delivery.",
     "nav.hubMobile.formations.sub": "Workshops and skills uplift.",
+    "ui.scroll.prev": "Scroll left",
+    "ui.scroll.next": "Scroll right",
 
     "footer.contactCard.title": "Get in touch",
     "footer.contactCard.heading": "Questions about your finances?",
@@ -408,7 +412,7 @@ export const MESSAGES: Record<Locale, Messages> = {
     "home.about.title.c": "and love",
     "home.about.subtitle": "{name} — rigor, proximity and high standards",
     "home.about.p1":
-      "Born on January 15, 1994 in Yaoundé, Darlain built his expertise through more than a decade of hands-on experience. With a Master's degree in Audit and Management Accounting, he rose through leading firms before founding {name}, a firm whose name bears the imprint of his twins—his greatest pride.",
+      "Born on January 15, 1994 in Yaoundé, Darlain built his expertise through five years of hands-on experience. With a Master's degree in Audit and Management Accounting, he rose through leading firms before founding {name}, a firm whose name bears the imprint of his twins—his greatest pride.",
     "home.about.p2":
       "Behind every engagement lies a conviction: rigor and humanity complement each other—they are not opposites.",
     "home.about.cta.wa": "Message us on WhatsApp",
@@ -533,7 +537,7 @@ export const MESSAGES: Record<Locale, Messages> = {
     "legal.credits.p": "Website designed for {name} — Yaoundé, Cameroon.",
     "meta.home.title": "J & J Consulting SARL | Audit, Accounting & Tax Advisory — Yaoundé",
     "meta.home.desc":
-      "J & J Consulting SARL is your audit, accounting, tax and finance advisory firm in Yaoundé, Cameroon. Free quote. 10+ years of experience.",
+      "J & J Consulting SARL is your audit, accounting, tax and finance advisory firm in Yaoundé, Cameroon. Free quote. 5 years of experience.",
     "meta.about.title": "About | J & J Consulting SARL — The story of a firm",
     "meta.about.desc":
       "Discover the story of J & J Consulting SARL and its founder. A firm born from passion and love, built on excellence.",

@@ -11,10 +11,8 @@ import {
   Building2,
   MessageSquareText,
   Send,
-  Calendar,
-  ArrowRight,
 } from "lucide-react";
-import { SITE, WHATSAPP_LINK, CALENDLY_URL } from "@/lib/constants";
+import { SITE, WHATSAPP_LINK } from "@/lib/constants";
 import { useI18n } from "@/components/i18n/I18nProvider";
 import { getServicesForLocale } from "@/lib/services-localized";
 
@@ -22,8 +20,6 @@ export function ContactPageClient() {
   const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
   const { t, locale } = useI18n();
   const serviceOptions = useMemo(() => getServicesForLocale(locale), [locale]);
-  const calendlyHref = CALENDLY_URL || "#formulaire-contact";
-  const calendlyOpensNewTab = Boolean(CALENDLY_URL);
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -170,7 +166,7 @@ export function ContactPageClient() {
               </div>
             </div>
 
-            <div className="relative mt-7 grid gap-2 sm:grid-cols-3 sm:items-stretch">
+            <div className="relative mt-7 grid grid-cols-1 gap-2 sm:grid-cols-2 sm:items-stretch">
               <div className="group/stat relative flex min-h-[4rem] overflow-hidden rounded-xl border border-white/10 bg-black/20 px-3.5 py-2.5 transition duration-300 hover:border-[#C9A84C]/30 hover:bg-black/25 sm:min-h-[4.25rem] sm:px-4 sm:py-3">
                 <div
                   className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-300 group-hover/stat:opacity-100"
@@ -187,28 +183,6 @@ export function ContactPageClient() {
                   <p className="font-serif text-base text-white/90 sm:text-[1.05rem]">{t("contact.hero.responseValue")}</p>
                 </div>
               </div>
-
-              <a
-                href={calendlyHref}
-                target={calendlyOpensNewTab ? "_blank" : undefined}
-                rel={calendlyOpensNewTab ? "noopener noreferrer" : undefined}
-                aria-label={
-                  calendlyOpensNewTab ? t("contact.hero.calendlyAria") : t("contact.hero.calendlyFallbackAria")
-                }
-                className="group/rdv relative flex min-h-[4rem] items-center justify-center gap-1.5 overflow-hidden rounded-xl border border-[#C9A84C]/40 bg-[#C9A84C] px-3 py-2.5 text-center text-sm font-semibold text-[#0A0A0A] shadow-[0_8px_28px_-10px_rgba(201,168,76,0.5)] transition duration-300 hover:border-[#C9A84C] hover:bg-[#d4b35c] hover:shadow-[0_14px_36px_-12px_rgba(201,168,76,0.4)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#C9A84C] sm:min-h-[4.25rem] sm:gap-2 sm:px-4 sm:text-[0.9375rem]"
-              >
-                <span
-                  className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-300 group-hover/rdv:opacity-100"
-                  style={{
-                    backgroundImage:
-                      "linear-gradient(120deg, rgba(255,255,255,0.35), transparent 40%, rgba(255,255,255,0.1))",
-                  }}
-                  aria-hidden
-                />
-                <Calendar className="relative h-4 w-4 shrink-0 sm:h-[1.125rem] sm:w-[1.125rem]" aria-hidden />
-                <span className="relative whitespace-nowrap">{t("contact.hero.ctaCalendly")}</span>
-                <ArrowRight className="relative h-4 w-4 shrink-0 transition-transform duration-300 group-hover/rdv:translate-x-0.5 sm:h-[1.125rem] sm:w-[1.125rem]" aria-hidden />
-              </a>
 
               <div className="group/stat relative flex min-h-[4rem] overflow-hidden rounded-xl border border-white/10 bg-black/20 px-3.5 py-2.5 transition duration-300 hover:border-[#C9A84C]/30 hover:bg-black/25 sm:min-h-[4.25rem] sm:px-4 sm:py-3">
                 <div
