@@ -79,12 +79,15 @@ export default async function AProposPage() {
               aria-hidden
             >
               <div className="absolute inset-0 rounded-[2rem] bg-gradient-to-br from-[#C9A84C]/20 via-white/30 to-transparent ring-1 ring-[#C9A84C]/20" />
-              <div className="absolute inset-[10%] -rotate-[3deg] rounded-2xl border border-[#0A0A0A]/[0.06] bg-white/50 shadow-[0_25px_60px_-20px_rgba(10,10,10,0.12)] backdrop-blur-[2px]" />
-              <div className="absolute bottom-[8%] left-[6%] right-[10%] top-[18%] rotate-[2deg] rounded-2xl border border-[#C9A84C]/30 bg-gradient-to-tl from-white/80 to-[#F5F0E6]/90 shadow-[0_20px_40px_-18px_rgba(201,168,76,0.35)]" />
-              <div className="absolute bottom-6 left-8 flex gap-1.5">
-                <span className="h-1.5 w-1.5 rounded-full bg-[#C9A84C]" />
-                <span className="h-1.5 w-1.5 rounded-full bg-[#C9A84C]/40" />
-                <span className="h-1.5 w-1.5 rounded-full bg-[#C9A84C]/20" />
+              <div className="absolute inset-[8%] overflow-hidden rounded-2xl border border-[#0A0A0A]/[0.06] bg-white/70 shadow-[0_25px_60px_-20px_rgba(10,10,10,0.12)] backdrop-blur-[2px]">
+                <Image
+                  src={encodeURI("/images/img animés.webp")}
+                  alt=""
+                  fill
+                  className="object-cover object-[50%_18%] scale-[1.18]"
+                  sizes="(max-width: 1024px) 0vw, 420px"
+                  priority={false}
+                />
               </div>
             </div>
           </div>
@@ -98,17 +101,15 @@ export default async function AProposPage() {
         />
         <div className="relative max-w-7xl mx-auto px-6 lg:px-16">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
-            <div className="relative aspect-[4/5] overflow-hidden rounded-lg bg-gradient-to-br from-[#EDE8DF] to-[#C9A84C]/25 p-[2px] shadow-[0_24px_48px_-24px_rgba(10,10,10,0.15)]">
-              <div className="relative h-full min-h-[320px] w-full overflow-hidden rounded-[6px] bg-[#F0EEEA] sm:min-h-[380px] lg:min-h-0">
-                <Image
-                  src={encodeURI("/WhatsApp Image 2026-04-21 at 19.41.59 (1).jpeg")}
-                  alt={copy.founderAlt}
-                  fill
-                  className="object-cover object-top"
-                  sizes="(max-width: 1024px) 100vw, 50vw"
-                  priority
-                />
-              </div>
+            <div className="relative aspect-[4/5] w-full min-h-[320px] sm:min-h-[380px] lg:min-h-0">
+              <Image
+                src="/images/WhatsApp_Image_2026-04-21_at_19.41.59__1_-removebg-preview.png"
+                alt={copy.founderAlt}
+                fill
+                className="object-contain object-center"
+                sizes="(max-width: 1024px) 100vw, 50vw"
+                priority
+              />
             </div>
             <div>
               <p className="text-[#C9A84C] text-[10px] font-semibold tracking-[4px] uppercase mb-4">
@@ -153,7 +154,7 @@ export default async function AProposPage() {
             </div>
             <div className="order-1 lg:order-2 aspect-[4/3] rounded-2xl overflow-hidden min-h-[280px] relative">
               <video
-                src="/v1.mp4"
+                src="/images/VID-20221210-WA0043.mp4"
                 autoPlay
                 muted
                 loop

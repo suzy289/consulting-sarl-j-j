@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { Fragment } from "react";
 import Image from "next/image";
 import { WHATSAPP_LINK } from "@/lib/constants";
 import { getLocaleFromCookies } from "@/lib/i18n-server";
@@ -142,9 +143,21 @@ export default async function NosServicesPage() {
               const whatsappMsg = t(locale, "services.waDetail").replace("{service}", service.title);
               const waLink = `${WHATSAPP_LINK}?text=${encodeURIComponent(whatsappMsg)}`;
 
+              const hubAnchorBefore =
+                service.slug === "conseil-strategique"
+                  ? "conseil"
+                  : service.slug === "business-plan"
+                    ? "accompagnement-operationnel"
+                    : service.slug === "assistance-comptable"
+                      ? "assistance-operationnelle"
+                      : null;
+
               return (
-                <div
-                  key={service.slug}
+                <Fragment key={service.slug}>
+                  {hubAnchorBefore ? (
+                    <div id={hubAnchorBefore} tabIndex={-1} className="scroll-mt-28" aria-hidden />
+                  ) : null}
+                  <div
                   id={service.slug}
                   className="bg-white rounded-lg border border-gray-200 p-8 lg:p-10 hover:border-[#C9A84C]/50 transition-colors scroll-mt-24"
                 >
@@ -189,6 +202,7 @@ export default async function NosServicesPage() {
                     </div>
                   </div>
                 </div>
+                </Fragment>
               );
             })}
           </div>

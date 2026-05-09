@@ -1,17 +1,14 @@
 "use client";
 
-import { useMemo } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { Mail, Phone } from "lucide-react";
 
 import { SITE, WHATSAPP_LINK } from "@/lib/constants";
 import { useI18n } from "@/components/i18n/I18nProvider";
-import { getServicesForLocale } from "@/lib/services-localized";
 
 export function Footer() {
-  const { t, locale } = useI18n();
-  const services = useMemo(() => getServicesForLocale(locale), [locale]);
+  const { t } = useI18n();
   const phoneDisplay = SITE.phones[0] ?? `+${SITE.whatsapp}`;
   const telHref = `tel:+${SITE.whatsapp}`;
 
@@ -89,26 +86,24 @@ export function Footer() {
           </div>
 
           <div>
-            <h4 className="font-semibold text-sm tracking-widest uppercase mb-4">
+            <h4 className="mb-4 text-sm font-semibold uppercase tracking-widest text-white">
               {t("footer.services")}
             </h4>
             <ul className="space-y-2">
-              {services.slice(0, 5).map((s) => (
-                <li key={s.slug}>
-                  <Link
-                    href={`/nos-services#${s.slug}`}
-                    className="text-white/70 hover:text-[#C9A84C] text-sm transition-colors"
-                  >
-                    {s.title}
-                  </Link>
-                </li>
-              ))}
               <li>
                 <Link
                   href="/nos-services"
-                  className="text-[#C9A84C] hover:text-[#E4C97A] text-sm font-medium"
+                  className="text-sm font-medium text-[#C9A84C] transition-colors hover:text-[#E4C97A]"
                 >
-                  {t("footer.seeAll")}
+                  {t("footer.servicesLanding")}
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/contact"
+                  className="text-sm text-white/70 transition-colors hover:text-[#C9A84C]"
+                >
+                  {t("contact.section.formTitle")}
                 </Link>
               </li>
             </ul>

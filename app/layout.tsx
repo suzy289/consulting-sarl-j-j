@@ -34,7 +34,7 @@ export default async function RootLayout({
 }>) {
   const locale = await getLocaleFromCookies();
   return (
-    <html lang={locale} suppressHydrationWarning>
+    <html lang={locale} suppressHydrationWarning data-scroll-behavior="smooth">
       <body className="jj-site antialiased" suppressHydrationWarning>
         <Script id="jj-strip-cursor-attrs" strategy="beforeInteractive">
           {STRIP_CURSOR_ATTR_SCRIPT}

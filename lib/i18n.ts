@@ -14,6 +14,13 @@ export const MESSAGES: Record<Locale, Messages> = {
     "nav.contact": "Contact",
     "nav.quote": "Devis gratuit",
     "nav.allServices": "Voir tous les services →",
+    "nav.serviceAxes": "Axes d’expertise",
+    "nav.servicesDetail": "Fiches par filière",
+    "nav.hubMobile.domaines.sub": "Périmètres comptables, fiscaux et pilotage.",
+    "nav.hubMobile.conseil.sub": "Stratégie, structuration, financement.",
+    "nav.hubMobile.accompagnement.sub": "Business plans, prévisionnels, indicateurs.",
+    "nav.hubMobile.assistance.sub": "Dossiers courants, conformité, production.",
+    "nav.hubMobile.formations.sub": "Ateliers et montée en compétences.",
 
     "footer.contactCard.title": "Prise de contact",
     "footer.contactCard.heading": "Une question sur la gestion de votre activité",
@@ -21,7 +28,36 @@ export const MESSAGES: Record<Locale, Messages> = {
       "Écrivez-nous : nous revenons vers vous sous 24h avec des options adaptées à votre situation.",
     "footer.contactCard.form": "Formulaire",
     "footer.services": "Nos Services",
+    "footer.serviceHub.domaines": "Domaines d'intervention",
+    "footer.serviceHub.conseil": "Conseil",
+    "footer.serviceHub.accompagnementOp": "Accompagnement opérationnel",
+    "footer.serviceHub.assistanceOp": "Assistance opérationnelle",
+    "footer.serviceHub.formations": "Formations",
     "footer.seeAll": "Voir tous →",
+    "footer.servicesLanding": "Vue générale — tous nos services →",
+
+    "hub.placeholder.photo":
+      "Emplacement photo — glissez ici une image de mission, d’équipe ou de bureau (recommandé 1200×800 px).",
+    "hub.placeholder.wide":
+      "Zone visuelle large — idéal pour une photo de séminaire, livrable ou illustration métier.",
+    "hub.placeholder.square":
+      "Bloc carré — screenshot logiciel, infographie ou portrait équipe.",
+    "hub.formations.softwareDevicesAlt":
+      "Interfaces logiciel de gestion sur ordinateur, tablette et smartphone — démonstration pédagogique.",
+    "hub.formations.workshopHeroVideoAria":
+      "Vidéo d’illustration — séminaire, formation ou mission encadrée par le cabinet.",
+    "hub.formations.missionMarqueeAlt1":
+      "Équipe et participants — moment de formation ou de remise de certificats.",
+    "hub.formations.missionMarqueeAlt2":
+      "Groupe en séminaire — accompagnement et transmission.",
+    "hub.domaines.heroLoopVideoAria":
+      "Fond vidéo en boucle derrière l’illustration des interfaces logiciel sur multi-supports.",
+    "hub.domaines.asideImageAlt":
+      "Photo d’illustration — missions, équipe ou contexte d’accompagnement du cabinet.",
+    "hub.magazine.wideVideoAria":
+      "Vidéo d’illustration en boucle — séminaire, mission ou contexte projet.",
+    "hub.focusCards.pilotageDiagramAlt":
+      "Schéma du pilotage d’entreprise : vision stratégique, suivi opérationnel et apprentissage organisationnel.",
     "footer.firm": "Le Cabinet",
     "footer.legal": "Mentions Légales",
     "footer.rights": "Tous droits réservés.",
@@ -248,6 +284,13 @@ export const MESSAGES: Record<Locale, Messages> = {
     "nav.contact": "Contact",
     "nav.quote": "Free quote",
     "nav.allServices": "View all services →",
+    "nav.serviceAxes": "Practice pillars",
+    "nav.servicesDetail": "Service sheets",
+    "nav.hubMobile.domaines.sub": "Accounting, tax and steering scope.",
+    "nav.hubMobile.conseil.sub": "Strategy, structuring and funding.",
+    "nav.hubMobile.accompagnement.sub": "Plans, forecasts and KPIs.",
+    "nav.hubMobile.assistance.sub": "Day-to-day files, compliance, delivery.",
+    "nav.hubMobile.formations.sub": "Workshops and skills uplift.",
 
     "footer.contactCard.title": "Get in touch",
     "footer.contactCard.heading": "Questions about your finances?",
@@ -255,7 +298,36 @@ export const MESSAGES: Record<Locale, Messages> = {
       "Write to us: we’ll get back to you within 24 hours with options tailored to your situation.",
     "footer.contactCard.form": "Form",
     "footer.services": "Services",
+    "footer.serviceHub.domaines": "Areas of intervention",
+    "footer.serviceHub.conseil": "Advisory",
+    "footer.serviceHub.accompagnementOp": "Operational support",
+    "footer.serviceHub.assistanceOp": "Operational assistance",
+    "footer.serviceHub.formations": "Training",
     "footer.seeAll": "View all →",
+    "footer.servicesLanding": "Full services overview →",
+
+    "hub.placeholder.photo":
+      "Photo slot — add a mission, team or office image (suggested 1200×800 px).",
+    "hub.placeholder.wide":
+      "Wide visual — seminar, deliverable or sector illustration.",
+    "hub.placeholder.square":
+      "Square block — software screenshot, infographic or team portrait.",
+    "hub.formations.softwareDevicesAlt":
+      "Management software interfaces on laptop, tablet and smartphone — training illustration.",
+    "hub.formations.workshopHeroVideoAria":
+      "Illustrative video — seminar, training or mission led by the firm.",
+    "hub.formations.missionMarqueeAlt1":
+      "Team and participants — training session or certificate moment.",
+    "hub.formations.missionMarqueeAlt2":
+      "Seminar group — advisory and knowledge transfer.",
+    "hub.domaines.heroLoopVideoAria":
+      "Looping video background behind the multi-device software interface illustration.",
+    "hub.domaines.asideImageAlt":
+      "Illustration photo — missions, team or advisory context for the firm.",
+    "hub.magazine.wideVideoAria":
+      "Looping illustrative video — seminar, mission or project context.",
+    "hub.focusCards.pilotageDiagramAlt":
+      "Business steering diagram: strategic vision, operational monitoring and organizational learning.",
     "footer.firm": "The firm",
     "footer.legal": "Legal notice",
     "footer.rights": "All rights reserved.",

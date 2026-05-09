@@ -22,7 +22,7 @@ export default async function ReferencesPage() {
     [
       {
         type: "video" as const,
-        src: "/images/VID-20221210-WA0043.mp4",
+        src: "/images/video.mp4",
         alt: "Session de travail et conférence",
       },
       {
@@ -56,18 +56,51 @@ export default async function ReferencesPage() {
     [
       {
         type: "video" as const,
-        src: "/images/VID-20221210-WA0060.mp4",
+        src: "/images/vid.mp4",
         alt: "Animation de séance et échanges",
       },
       {
         type: "image" as const,
-        src: "/images/IMG-20221211-WA0092.jpg",
+        src: encodeURI("/images/WhatsApp Image 2026-04-22 at 14.32.03.jpeg"),
         alt: "Photo de groupe en fin de formation",
       },
       {
         type: "image" as const,
         src: "/images/IMG-20221211-WA0088.jpg",
         alt: "Photo d'équipe et remise d'attestation",
+      },
+    ],
+  ];
+  const interventionColumnsExtra = [
+    [
+      {
+        type: "video" as const,
+        src: encodeURI("/images/WhatsApp Video 2026-04-22 at 14.23.43.mp4"),
+        alt: "Séance de formation et échanges professionnels",
+      },
+      {
+        type: "image" as const,
+        src: "/images/IMG-20221210-WA0031.jpg",
+        alt: "Formation en entreprise — travail en salle",
+      },
+    ],
+    [
+      {
+        type: "video" as const,
+        src: "/images/VID-20221210-WA0060.mp4",
+        alt: "Animation de séance et échanges",
+      },
+      {
+        type: "image" as const,
+        src: "/images/IMG-20250201-WA0030.jpg",
+        alt: "Photo de groupe — fin de session",
+      },
+    ],
+    [
+      {
+        type: "video" as const,
+        src: "/images/VID-20221210-WA0043.mp4",
+        alt: "Intervention et présentation",
       },
     ],
   ];
@@ -287,6 +320,60 @@ export default async function ReferencesPage() {
               return (
                 <div
                   key={`intervention-column-${columnIndex}`}
+                  className="relative aspect-video overflow-hidden rounded-xl border border-gray-200 bg-[#F5F5F5]"
+                >
+                  <div
+                    className={`intervention-track ${animationClass} ${
+                      isVertical ? "flex-col" : "flex-row"
+                    }`}
+                  >
+                    {mediaLoop.map((media, mediaIndex) => (
+                      <div
+                        key={`${media.src}-${mediaIndex}`}
+                        className={`relative shrink-0 ${isVertical ? "h-full w-full" : "h-full w-full"}`}
+                      >
+                        {media.type === "video" ? (
+                          <video
+                            src={media.src}
+                            autoPlay
+                            muted
+                            loop
+                            playsInline
+                            className="h-full w-full object-cover"
+                            aria-label={media.alt}
+                          />
+                        ) : (
+                          <Image
+                            src={media.src}
+                            alt={media.alt}
+                            fill
+                            className="object-cover"
+                            sizes="(max-width: 768px) 100vw, 33vw"
+                          />
+                        )}
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+
+          <div className="mt-6 grid md:grid-cols-3 gap-6">
+            {interventionColumnsExtra.map((column, columnIndex) => {
+              const animationClass =
+                columnIndex === 0
+                  ? "intervention-track-x"
+                  : columnIndex === 1
+                    ? "intervention-track-x-reverse"
+                    : "intervention-track-y";
+
+              const isVertical = columnIndex === 2;
+              const mediaLoop = [...column, ...column];
+
+              return (
+                <div
+                  key={`intervention2-column-${columnIndex}`}
                   className="relative aspect-video overflow-hidden rounded-xl border border-gray-200 bg-[#F5F5F5]"
                 >
                   <div

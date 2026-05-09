@@ -172,6 +172,151 @@ body {
   }
 }
 
+/* Formations (hub workshop) — bandeau photos missions, droite → gauche */
+.animate-formations-mission-marquee {
+  animation: vision-images-marquee 36s linear infinite;
+  will-change: transform;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-formations-mission-marquee {
+    animation: none;
+    transform: translateX(0);
+    will-change: auto;
+  }
+}
+
+/* Hub « alternating » — soulignement titre : bandes noir / or défilantes */
+@keyframes jj-hub-alt-underline-shift {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-72px);
+  }
+}
+
+.jj-hub-alt-title-wrap {
+  position: relative;
+  display: inline-block;
+  max-width: 100%;
+  padding-bottom: 0.45rem;
+}
+
+.jj-hub-alt-underline-track {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 4px;
+  overflow: hidden;
+  border-radius: 9999px;
+  background: rgba(10, 10, 10, 0.06);
+}
+
+.jj-hub-alt-underline-bar {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: calc(100% + 72px);
+  border-radius: 9999px;
+  background: repeating-linear-gradient(
+    90deg,
+    #0a0a0a 0,
+    #0a0a0a 36px,
+    #c9a84c 36px,
+    #c9a84c 72px
+  );
+  animation: jj-hub-alt-underline-shift 1.15s linear infinite;
+  will-change: transform;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .jj-hub-alt-underline-bar {
+    animation: none;
+    transform: translateX(0);
+    width: 100%;
+    background: linear-gradient(90deg, #0a0a0a 0%, #c9a84c 50%, #0a0a0a 100%);
+  }
+}
+
+/* Hub magazine — trait type Rolack Trading (dégradé noir / or animé, barre fixe w-56) */
+@keyframes jj-magazine-rolack-underline-move {
+  from {
+    background-position: 0% 50%;
+  }
+  to {
+    background-position: 200% 50%;
+  }
+}
+
+.jj-magazine-rolack-underline {
+  display: block;
+  opacity: 0.95;
+  height: 3px;
+  width: min(14rem, 100%);
+  border-radius: 9999px;
+  background-image: linear-gradient(
+    90deg,
+    #111 0%,
+    #d4af37 25%,
+    #111 50%,
+    #d4af37 75%,
+    #111 100%
+  );
+  background-size: 200% 100%;
+  animation: jj-magazine-rolack-underline-move 1.8s linear infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .jj-magazine-rolack-underline {
+    animation: none;
+    background-position: 50% 50%;
+  }
+}
+
+/* Hub focusCards — titre hero : dégradé noir / or, ton plus « stylé » */
+@keyframes jj-focus-cards-title-shine {
+  0%,
+  100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+.jj-focus-cards-hero-title {
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  line-height: 1.08;
+  background: linear-gradient(
+    100deg,
+    #0a0a0a 0%,
+    #0a0a0a 20%,
+    #8a6f3a 34%,
+    #e8c547 46%,
+    #c9a84c 52%,
+    #f5e6b8 58%,
+    #3d3428 70%,
+    #c9a84c 82%,
+    #0a0a0a 100%
+  );
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: jj-focus-cards-title-shine 12s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .jj-focus-cards-hero-title {
+    animation: none;
+    background-position: 40% 50%;
+  }
+}
+
 /*
  * Boutons — fond qui « défile » au survol (style Symposium / ThemeWagon)
  * Deux tons en gradient + background-position (gauche → droite au survol)

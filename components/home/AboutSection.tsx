@@ -7,6 +7,7 @@ import { ArrowRight } from "lucide-react";
 
 import { SITE, WHATSAPP_LINK } from "@/lib/constants";
 import { useI18n } from "@/components/i18n/I18nProvider";
+import { getAboutCopy } from "@/lib/about";
 
 const HERO_BG = "/images/accounting.webp";
 
@@ -18,7 +19,8 @@ const fadeUp = {
 };
 
 export function AboutSection() {
-  const { t } = useI18n();
+  const { t, locale } = useI18n();
+  const aboutCopy = getAboutCopy(locale);
   const waConsult = `${WHATSAPP_LINK}?text=${encodeURIComponent(t("home.about.waConsult"))}`;
 
   const aboutSubtitle = t("home.about.subtitle").replace("{name}", SITE.name);
@@ -163,10 +165,10 @@ export function AboutSection() {
                   <div className="mb-6 grid grid-cols-2 gap-4 border-t-2 border-gray-200/90 pt-6 md:gap-6">
                     <div className="relative flex h-64 items-center justify-center overflow-hidden rounded-xl border-2 border-white/60 bg-white/50 p-2 shadow-inner backdrop-blur-md md:h-80">
                       <Image
-                        src={encodeURI("/WhatsApp Image 2026-04-21 at 19.41.59.jpeg")}
-                        alt="Comptabilité et audit — accompagnement en cabinet"
+                        src="/images/WhatsApp_Image_2026-04-21_at_19.41.59__1_-removebg-preview.png"
+                        alt={aboutCopy.founderAlt}
                         fill
-                        className="object-contain opacity-90"
+                        className="object-contain object-center opacity-95"
                         sizes="(max-width: 768px) 45vw, 400px"
                       />
                     </div>

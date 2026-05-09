@@ -3,12 +3,12 @@
 import Image from "next/image";
 
 const VISION_IMAGES = [
-  "/images/IMG-20221211-WA0092.jpg",
+  encodeURI("/images/WhatsApp Image 2026-04-22 at 14.32.01.jpeg"),
   "/images/IMG-20221211-WA0079.jpg",
   "/images/IMG-20221211-WA0072.jpg",
   "/images/IMG-20221211-WA0076.jpg",
   "/images/IMG-20221211-WA0064.jpg",
-  "/images/IMG-20221211-WA0088.jpg",
+  encodeURI("/images/WhatsApp Image 2026-04-22 at 14.28.13.jpeg"),
 ] as const;
 
 /** Durée d’un cycle (boucle sans couture). Plus bas = plus rapide. */

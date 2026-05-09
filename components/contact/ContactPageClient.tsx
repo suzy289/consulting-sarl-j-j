@@ -30,12 +30,57 @@ export function ContactPageClient() {
     setStatus("loading");
     const form = e.currentTarget;
     const formData = new FormData(form);
+    const fd = Object.fromEntries(formData) as Record<string, string>;
+    const web3Key = process.env.NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY;
 
     try {
+      /** Web3Forms : l’envoi doit partir du navigateur (le serveur Next reçoit souvent du HTML au lieu de JSON). */
+      if (web3Key) {
+        const textBody = [
+          `Message :`,
+          fd.message ?? "",
+          ``,
+          `WhatsApp : ${fd.whatsapp ?? ""}`,
+          `Entreprise : ${fd.company || "—"}`,
+          `Axe / service : ${fd.service ?? ""}`,
+          `Souhaite un contact WhatsApp : ${fd.whatsappContact === "on" ? "Oui" : "Non"}`,
+        ].join("\n");
+
+        const res = await fetch("https://api.web3forms.com/submit", {
+          method: "POST",
+          headers: { "Content-Type": "application/json", Accept: "application/json" },
+          body: JSON.stringify({
+            access_key: web3Key,
+            subject: `[J & J Consulting] Contact — ${fd.service ?? ""}`,
+            name: fd.name ?? "",
+            email: fd.email ?? "",
+            message: textBody,
+            botcheck: false,
+          }),
+        });
+        const raw = await res.text();
+        let data: { success?: boolean; message?: string } = {};
+        try {
+          data = JSON.parse(raw) as { success?: boolean; message?: string };
+        } catch {
+          console.error("Web3Forms (réponse non JSON):", res.status, raw.slice(0, 400));
+          setStatus("error");
+          return;
+        }
+        if (!res.ok || !data.success) {
+          console.error("Web3Forms:", data);
+          setStatus("error");
+          return;
+        }
+        setStatus("success");
+        form.reset();
+        return;
+      }
+
       const res = await fetch("/api/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(Object.fromEntries(formData)),
+        body: JSON.stringify(fd),
       });
       if (res.ok) {
         setStatus("success");
@@ -125,8 +170,8 @@ export function ContactPageClient() {
               </div>
             </div>
 
-            <div className="relative mt-10 grid gap-3 sm:grid-cols-3 sm:items-stretch">
-              <div className="group/stat relative flex min-h-[5.625rem] overflow-hidden rounded-2xl border border-white/10 bg-black/20 px-5 py-4 transition duration-300 hover:border-[#C9A84C]/30 hover:bg-black/25">
+            <div className="relative mt-7 grid gap-2 sm:grid-cols-3 sm:items-stretch">
+              <div className="group/stat relative flex min-h-[4rem] overflow-hidden rounded-xl border border-white/10 bg-black/20 px-3.5 py-2.5 transition duration-300 hover:border-[#C9A84C]/30 hover:bg-black/25 sm:min-h-[4.25rem] sm:px-4 sm:py-3">
                 <div
                   className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-300 group-hover/stat:opacity-100"
                   style={{
@@ -135,11 +180,11 @@ export function ContactPageClient() {
                   }}
                   aria-hidden
                 />
-                <div className="relative flex w-full items-baseline justify-between gap-4">
-                  <p className="text-[11px] tracking-[0.22em] uppercase text-white/60">
+                <div className="relative flex w-full items-baseline justify-between gap-3">
+                  <p className="text-[10px] tracking-[0.16em] uppercase text-white/60">
                     {t("contact.hero.statResponse")}
                   </p>
-                  <p className="font-serif text-lg text-white/90">{t("contact.hero.responseValue")}</p>
+                  <p className="font-serif text-base text-white/90 sm:text-[1.05rem]">{t("contact.hero.responseValue")}</p>
                 </div>
               </div>
 
@@ -150,7 +195,7 @@ export function ContactPageClient() {
                 aria-label={
                   calendlyOpensNewTab ? t("contact.hero.calendlyAria") : t("contact.hero.calendlyFallbackAria")
                 }
-                className="group/rdv relative flex min-h-[5.625rem] items-center justify-center gap-2 overflow-hidden rounded-2xl border border-[#C9A84C]/40 bg-[#C9A84C] px-4 py-3 text-center text-base font-semibold text-[#0A0A0A] shadow-[0_12px_40px_-12px_rgba(201,168,76,0.55)] transition duration-300 hover:border-[#C9A84C] hover:bg-[#d4b35c] hover:shadow-[0_20px_50px_-15px_rgba(201,168,76,0.45)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#C9A84C] sm:px-6 sm:text-lg"
+                className="group/rdv relative flex min-h-[4rem] items-center justify-center gap-1.5 overflow-hidden rounded-xl border border-[#C9A84C]/40 bg-[#C9A84C] px-3 py-2.5 text-center text-sm font-semibold text-[#0A0A0A] shadow-[0_8px_28px_-10px_rgba(201,168,76,0.5)] transition duration-300 hover:border-[#C9A84C] hover:bg-[#d4b35c] hover:shadow-[0_14px_36px_-12px_rgba(201,168,76,0.4)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#C9A84C] sm:min-h-[4.25rem] sm:gap-2 sm:px-4 sm:text-[0.9375rem]"
               >
                 <span
                   className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-300 group-hover/rdv:opacity-100"
@@ -160,12 +205,12 @@ export function ContactPageClient() {
                   }}
                   aria-hidden
                 />
-                <Calendar className="relative h-5 w-5 shrink-0 sm:h-6 sm:w-6" aria-hidden />
+                <Calendar className="relative h-4 w-4 shrink-0 sm:h-[1.125rem] sm:w-[1.125rem]" aria-hidden />
                 <span className="relative whitespace-nowrap">{t("contact.hero.ctaCalendly")}</span>
-                <ArrowRight className="relative h-5 w-5 shrink-0 transition-transform duration-300 group-hover/rdv:translate-x-0.5 sm:h-6 sm:w-6" aria-hidden />
+                <ArrowRight className="relative h-4 w-4 shrink-0 transition-transform duration-300 group-hover/rdv:translate-x-0.5 sm:h-[1.125rem] sm:w-[1.125rem]" aria-hidden />
               </a>
 
-              <div className="group/stat relative flex min-h-[5.625rem] overflow-hidden rounded-2xl border border-white/10 bg-black/20 px-5 py-4 transition duration-300 hover:border-[#C9A84C]/30 hover:bg-black/25">
+              <div className="group/stat relative flex min-h-[4rem] overflow-hidden rounded-xl border border-white/10 bg-black/20 px-3.5 py-2.5 transition duration-300 hover:border-[#C9A84C]/30 hover:bg-black/25 sm:min-h-[4.25rem] sm:px-4 sm:py-3">
                 <div
                   className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-300 group-hover/stat:opacity-100"
                   style={{
@@ -174,11 +219,11 @@ export function ContactPageClient() {
                   }}
                   aria-hidden
                 />
-                <div className="relative flex w-full items-baseline justify-between gap-4">
-                  <p className="text-[11px] tracking-[0.22em] uppercase text-white/60">
+                <div className="relative flex w-full items-baseline justify-between gap-3">
+                  <p className="text-[10px] tracking-[0.16em] uppercase text-white/60">
                     {t("contact.hero.statQuote")}
                   </p>
-                  <p className="font-serif text-lg text-white/90">{t("contact.hero.quoteValue")}</p>
+                  <p className="font-serif text-base text-white/90 sm:text-[1.05rem]">{t("contact.hero.quoteValue")}</p>
                 </div>
               </div>
             </div>

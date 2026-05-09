@@ -3,7 +3,7 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
 import { useId, type ReactNode } from "react";
-import { Calendar, Clock } from "lucide-react";
+import { Calendar, Clock, UserRound } from "lucide-react";
 import { useI18n } from "@/components/i18n/I18nProvider";
 
 /**
@@ -11,7 +11,7 @@ import { useI18n } from "@/components/i18n/I18nProvider";
  * Vidéo : renseignez CIRCLE_VIDEO (ex. "/v1.mp4").
  */
 const CIRCLE_IMAGE = "/images/nos-services-header.png";
-const CIRCLE_VIDEO: string | null = "/images/VID-20221210-WA0043.mp4";
+const CIRCLE_VIDEO: string | null = "/images/video.mp4";
 
 /** Ruban orange incurvé sous le photo-cercle, texte blanc sur le tracé (comme « SEMINAR » sur le flyer). */
 function OrangeRibbonArc({ label }: { label: string }) {
@@ -64,13 +64,11 @@ export function ValuesSection() {
       name: t("home.values.team1.name"),
       role: t("home.values.team1.role"),
       org: t("home.values.team1.org"),
-      photo: "/dg-portrait.png",
     },
     {
       name: t("home.values.team2.name"),
       role: t("home.values.team2.role"),
       org: t("home.values.team2.org"),
-      photo: "/part1.png",
     },
   ] as const;
 
@@ -146,14 +144,11 @@ export function ValuesSection() {
               <ul className="space-y-6">
                 {TEAM.map((person) => (
                   <li key={person.name} className="flex gap-4">
-                    <div className="relative h-[4.25rem] w-[4.25rem] shrink-0 overflow-hidden rounded-full border-[3px] border-[#C9A84C] bg-white shadow-sm ring-2 ring-white">
-                      <Image
-                        src={person.photo}
-                        alt={person.name}
-                        fill
-                        className="object-cover"
-                        sizes="68px"
-                      />
+                    <div
+                      className="flex h-[4.25rem] w-[4.25rem] shrink-0 items-center justify-center rounded-full border-[3px] border-[#C9A84C] bg-gradient-to-br from-white to-[#F0EDE6] shadow-sm ring-2 ring-white"
+                      aria-hidden
+                    >
+                      <UserRound className="h-9 w-9 text-[#0A0A0A]" strokeWidth={1.65} />
                     </div>
                     <div className="min-w-0 pt-0.5">
                       <p className="font-bold text-[#0A0A0A]">{person.name}</p>
