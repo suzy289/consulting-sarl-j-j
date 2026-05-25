@@ -3,6 +3,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { partners } from "@/lib/partners";
 import { PartnerRowScroller } from "@/components/references/PartnerRowScroller";
+import { InterventionVideo } from "@/components/references/InterventionVideo";
 import { getLocaleFromCookies } from "@/lib/i18n-server";
 import { getReferencesCopy } from "@/lib/references";
 import { t } from "@/lib/i18n";
@@ -107,6 +108,10 @@ export default async function ReferencesPage() {
   ];
   const rotatingTestimonials = copy.rotatingTestimonials;
   const testimonialBorderColors = ["#C9A84C", "#EF4444", "#25D366"];
+  const interventionFrameClass =
+    "relative aspect-[4/5] sm:aspect-[3/4] overflow-hidden rounded-xl border border-gray-200 bg-[#F5F5F5]";
+  const interventionVideoClass = "h-full w-full object-cover object-top";
+  const interventionImageClass = "object-cover object-top";
 
   return (
     <>
@@ -260,7 +265,7 @@ export default async function ReferencesPage() {
               return (
                 <div
                   key={`intervention-column-${columnIndex}`}
-                  className="relative aspect-video overflow-hidden rounded-xl border border-gray-200 bg-[#F5F5F5]"
+                  className={interventionFrameClass}
                 >
                   <div
                     className={`intervention-track ${animationClass} ${
@@ -273,21 +278,18 @@ export default async function ReferencesPage() {
                         className={`relative shrink-0 ${isVertical ? "h-full w-full" : "h-full w-full"}`}
                       >
                         {media.type === "video" ? (
-                          <video
+                          <InterventionVideo
                             src={media.src}
-                            autoPlay
-                            muted
-                            loop
-                            playsInline
-                            className="h-full w-full object-cover"
-                            aria-label={media.alt}
+                            alt={media.alt}
+                            className={interventionVideoClass}
+                            instanceId={`c1-${columnIndex}-${mediaIndex}`}
                           />
                         ) : (
                           <Image
                             src={media.src}
                             alt={media.alt}
                             fill
-                            className="object-cover"
+                            className={interventionImageClass}
                             sizes="(max-width: 768px) 100vw, 33vw"
                           />
                         )}
@@ -314,7 +316,7 @@ export default async function ReferencesPage() {
               return (
                 <div
                   key={`intervention2-column-${columnIndex}`}
-                  className="relative aspect-video overflow-hidden rounded-xl border border-gray-200 bg-[#F5F5F5]"
+                  className={interventionFrameClass}
                 >
                   <div
                     className={`intervention-track ${animationClass} ${
@@ -327,21 +329,18 @@ export default async function ReferencesPage() {
                         className={`relative shrink-0 ${isVertical ? "h-full w-full" : "h-full w-full"}`}
                       >
                         {media.type === "video" ? (
-                          <video
+                          <InterventionVideo
                             src={media.src}
-                            autoPlay
-                            muted
-                            loop
-                            playsInline
-                            className="h-full w-full object-cover"
-                            aria-label={media.alt}
+                            alt={media.alt}
+                            className={interventionVideoClass}
+                            instanceId={`c2-${columnIndex}-${mediaIndex}`}
                           />
                         ) : (
                           <Image
                             src={media.src}
                             alt={media.alt}
                             fill
-                            className="object-cover"
+                            className={interventionImageClass}
                             sizes="(max-width: 768px) 100vw, 33vw"
                           />
                         )}

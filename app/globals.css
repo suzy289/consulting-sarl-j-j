@@ -1236,6 +1236,12 @@ nextjs-portal > * {
   box-shadow: inset 24px 0 34px -24px rgba(0, 0, 0, 0.52);
 }
 
+/* DGI — panneau « DIRECTION GENERALE DES IMPOTS » en haut à gauche */
+.services-hero-img-dgi {
+  object-fit: cover;
+  object-position: 10% 22%;
+}
+
 .book-page-a {
   z-index: 3;
   animation: book-page-3-a 12s cubic-bezier(0.18, 0.78, 0.22, 1) infinite;

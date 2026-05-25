@@ -81,12 +81,12 @@ export default async function AProposPage() {
               <div className="absolute inset-0 rounded-[2rem] bg-gradient-to-br from-[#C9A84C]/20 via-white/30 to-transparent ring-1 ring-[#C9A84C]/20" />
               <div className="absolute inset-[8%] overflow-hidden rounded-2xl border border-[#0A0A0A]/[0.06] bg-white/70 shadow-[0_25px_60px_-20px_rgba(10,10,10,0.12)] backdrop-blur-[2px]">
                 <Image
-                  src={encodeURI("/images/img animés.webp")}
+                  src="/images/history.jpg"
                   alt=""
                   fill
-                  className="object-cover object-[50%_18%] scale-[1.18]"
+                  className="object-cover object-center"
                   sizes="(max-width: 1024px) 0vw, 420px"
-                  priority={false}
+                  priority
                 />
               </div>
             </div>

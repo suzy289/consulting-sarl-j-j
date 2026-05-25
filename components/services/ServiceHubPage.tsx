@@ -37,36 +37,6 @@ function IllustrationPick({ id, className }: { id: HubIllustrationId; className?
   }
 }
 
-function PhotoSlot({
-  locale,
-  tone,
-  ratioClass,
-  msgKey,
-}: {
-  locale: Locale;
-  tone: "light" | "dark";
-  ratioClass: string;
-  msgKey: "hub.placeholder.photo" | "hub.placeholder.wide" | "hub.placeholder.square";
-}) {
-  return (
-    <div
-      className={`flex flex-col justify-end overflow-hidden rounded-2xl border-2 border-dashed p-4 ${ratioClass} ${
-        tone === "light"
-          ? "border-[#C9A84C]/35 bg-white/80 shadow-inner"
-          : "border-white/25 bg-white/5"
-      }`}
-    >
-      <p
-        className={`text-center text-[11px] leading-snug sm:text-xs ${
-          tone === "light" ? "text-gray-500" : "text-white/55"
-        }`}
-      >
-        {t(locale, msgKey)}
-      </p>
-    </div>
-  );
-}
-
 /** Petits accents géométriques en coin de carte — sans réserver de « colonne image » */
 function AlternatingCardCornerDecor({ index }: { index: number }) {
   const v = index % 3;
@@ -156,10 +126,8 @@ function Breadcrumb({
 }
 
 function SectionBlocks({
-  locale,
   sections,
 }: {
-  locale: Locale;
   sections: { heading: string; paragraphs: string[]; bullets?: string[] }[];
 }) {
   return (
@@ -355,7 +323,7 @@ export function ServiceHubPage({ slug, locale }: Props) {
           <div className="mx-auto max-w-7xl px-6 lg:px-16">
             <div className="grid gap-12 lg:grid-cols-12 lg:gap-14">
               <div className="space-y-12 lg:col-span-7">
-                <SectionBlocks locale={locale} sections={hub.sections} />
+                <SectionBlocks sections={hub.sections} />
               </div>
               <aside className="lg:col-span-5">
                 <div className="sticky top-28">

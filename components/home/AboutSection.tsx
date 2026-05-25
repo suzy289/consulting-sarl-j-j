@@ -9,7 +9,7 @@ import { SITE, WHATSAPP_LINK } from "@/lib/constants";
 import { useI18n } from "@/components/i18n/I18nProvider";
 import { getAboutCopy } from "@/lib/about";
 
-const HERO_BG = "/images/accounting.webp";
+const HERO_BG = "/images/history.jpg";
 
 const fadeUp = {
   initial: { opacity: 0 },

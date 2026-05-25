@@ -71,7 +71,7 @@ export default async function NosServicesPage() {
             <div className="book-page-scene absolute inset-0">
               <div className="book-page-layer book-page-a">
                 <Image
-                  src="/CNPS.jpg"
+                  src="/cnps0.jpeg"
                   alt={t(locale, "services.hero.alt1")}
                   fill
                   className="object-cover"
@@ -82,17 +82,17 @@ export default async function NosServicesPage() {
               </div>
               <div className="book-page-layer book-page-b">
                 <Image
-                  src="/dgi.png"
+                  src="/dgi0.jpeg"
                   alt={t(locale, "services.hero.alt2")}
                   fill
-                  className="object-cover"
+                  className="services-hero-img-dgi"
                   sizes="(max-width: 1024px) 50vw, 600px"
                 />
                 <div className="book-page-gloss" aria-hidden />
               </div>
               <div className="book-page-layer book-page-c">
                 <Image
-                  src="/ohada.jpg"
+                  src={encodeURI("/images/bat ohada.jpg")}
                   alt={t(locale, "services.hero.alt2")}
                   fill
                   className="object-cover"
