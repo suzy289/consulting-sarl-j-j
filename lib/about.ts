@@ -50,7 +50,7 @@ const FR: AboutCopy = {
   visionKicker: "Notre Vision",
   visionTitle: "Devenir un cabinet de référence",
   visionP1:
-    "Nous aspirons à devenir un cabinet de référence en audit, comptabilité et conseil fiscal au Cameroun et en Afrique. Reconnu pour son expertise, son intégrité et la qualité irréprochable de ses services.",
+    "Nous aspirons à devenir un cabinet de référence en audit, comptabilité et conseils fiscaux au Cameroun et en Afrique. Reconnu pour son expertise, son intégrité et la qualité irréprochable de ses services.",
   visionP2: "Une ambition portée par l'excellence opérationnelle et la confiance mutuelle avec nos clients.",
   valuesKicker: "Nos Valeurs",
   valuesTitle: "Les 6 piliers de notre engagement",

@@ -31,7 +31,7 @@ export const MESSAGES: Record<Locale, Messages> = {
     "footer.contactCard.form": "Formulaire",
     "footer.services": "Nos Services",
     "footer.serviceHub.domaines": "Domaines d'intervention",
-    "footer.serviceHub.conseil": "Conseil",
+    "footer.serviceHub.conseil": "Conseils",
     "footer.serviceHub.accompagnementOp": "Accompagnement opérationnel",
     "footer.serviceHub.assistanceOp": "Assistance opérationnelle",
     "footer.serviceHub.formations": "Formations",
@@ -45,7 +45,7 @@ export const MESSAGES: Record<Locale, Messages> = {
     "hub.placeholder.square":
       "Bloc carré — screenshot logiciel, infographie ou portrait équipe.",
     "hub.formations.softwareDevicesAlt":
-      "Interfaces logiciel de gestion sur ordinateur, tablette et smartphone — démonstration pédagogique.",
+      "Interface logiciel de gestion sur ordinateur, tablette et smartphone — démonstration pédagogique.",
     "hub.formations.workshopHeroVideoAria":
       "Vidéo d’illustration — séminaire, formation ou mission encadrée par le cabinet.",
     "hub.formations.missionMarqueeAlt1":
@@ -116,17 +116,17 @@ export const MESSAGES: Record<Locale, Messages> = {
     "lang.en": "English",
 
     "home.hero.kicker": "Cabinet d'audit & de conseil — Yaoundé, Cameroun",
-    "home.hero.title.a": "L'expertise au services de la gestion de votre structure",
+    "home.hero.title.a": "L'expertise au service de la gestion de votre structure",
     "home.hero.title.b": "",
     "home.hero.title.c": "",
     "home.hero.subtitle":
-      "J & J Consulting SARL accompagne les entreprises, PME, startups et institutions dans la maîtrise de leurs obligations comptables, fiscales et financières. Avec rigueur, intégrité et une vision profondément humaine du conseil.",
+      "J & J Consulting SARL accompagne les entreprises, PME, startups et institutions dans la maîtrise de leurs obligations comptables, fiscales et financières. Avec rigueur, intégrité et une vision profondément humaine des conseils.",
     "home.hero.cta.meeting": "Prendre rendez-vous",
     "home.hero.cta.services": "Découvrir nos services",
     "home.hero.float1.k": "Conformité",
     "home.hero.float1.v": "Pilotage fiscal continu",
     "home.hero.float2.k": "Performance",
-    "home.hero.float2.v": "KPI et reporting mensuel",
+    "home.hero.float2.v": "Reporting et pilotage mensuel",
     "home.hero.stats.kicker": "Chiffres clés",
     "home.hero.stat1": "Années d'expérience",
     "home.hero.stat2": "Domaines d'expertise",
@@ -161,7 +161,7 @@ export const MESSAGES: Record<Locale, Messages> = {
 
     "home.services.badge": "DOMAINES D'INTERVENTION",
     "home.services.intro":
-      "J & J Consulting SARL vous propose une gamme complète de services en audit, comptabilité, fiscalité et conseil",
+      "J & J Consulting SARL vous propose une gamme complète de services en audit, comptabilité, fiscalité et conseils",
     "home.services.prev": "Services précédents",
     "home.services.next": "Services suivants",
     "home.services.goTo": "Aller au service {n}",
@@ -223,7 +223,7 @@ export const MESSAGES: Record<Locale, Messages> = {
     "services.hero.kicker": "Nos domaines d'intervention",
     "services.hero.title": "J & J Consulting SARL est votre partenaire pour une gestion d'entreprise performante.",
     "services.hero.subtitle":
-      "Spécialistes en Audit, Comptabilité et Conseil Fiscal, nous transformons vos défis financiers en opportunités de croissance.",
+      "Spécialistes en Audit, Comptabilité et Conseils fiscaux, nous transformons vos défis financiers en opportunités de croissance.",
     "services.hero.cta": "Commencez dès maintenant",
     "services.hero.call": "Appelez-nous au +237 620 275 758",
     "services.hero.callSub": "Pour toute question ou préoccupation",
@@ -235,7 +235,7 @@ export const MESSAGES: Record<Locale, Messages> = {
     "services.stats.fees": "Frais cachés",
     "services.section.kicker": "Nos domaines d'intervention",
     "services.section.title":
-      "J & J Consulting SARL accompagne les entreprises dans la gestion, le conseil, l'assistance et la formation.",
+      "J & J Consulting SARL accompagne les entreprises dans la gestion, les conseils, l'assistance et la formation.",
     "services.section.subtitle": "Avec des solutions sur mesure pour optimiser la performance et la rentabilité.",
     "services.card.more": "En savoir plus →",
     "services.waDetail": "Bonjour, je souhaite des informations détaillées sur le service {service}. Merci de m'expliquer les modalités et le déroulement.",
@@ -263,9 +263,9 @@ export const MESSAGES: Record<Locale, Messages> = {
     "legal.privacy.p":
       "Les informations collectées via le formulaire de contact sont utilisées uniquement pour répondre à vos demandes. Elles ne sont pas cédées à des tiers. Conformément à la réglementation en vigueur, vous pouvez exercer votre droit d'accès, de rectification ou de suppression en nous contactant.",
     "legal.credits.p": "Site conçu pour {name} — Yaoundé, Cameroun.",
-    "meta.home.title": "J & J Consulting SARL | Cabinet d'Audit, Comptabilité & Conseil Fiscal — Yaoundé",
+    "meta.home.title": "J & J Consulting SARL | Cabinet d'Audit, Comptabilité & Conseils fiscaux — Yaoundé",
     "meta.home.desc":
-      "J & J Consulting SARL est votre cabinet d'audit, comptabilité, conseil fiscal et finance à Yaoundé, Cameroun. Devis gratuit. 5 ans d'expérience.",
+      "J & J Consulting SARL est votre cabinet d'audit, comptabilité, conseils fiscaux et finance à Yaoundé, Cameroun. Devis gratuit. 5 ans d'expérience.",
     "meta.about.title": "À Propos | J & J Consulting SARL — L'histoire d'un cabinet",
     "meta.about.desc":
       "Découvrez l'histoire de J & J Consulting SARL et de son fondateur. Un cabinet né de la passion et de l'amour, construit sur l'excellence.",
@@ -290,7 +290,7 @@ export const MESSAGES: Record<Locale, Messages> = {
     "nav.servicesDetail": "Service sheets",
     "nav.hubMobile.domaines.sub": "Accounting, tax and steering scope.",
     "nav.hubMobile.conseil.sub": "Strategy, structuring and funding.",
-    "nav.hubMobile.accompagnement.sub": "Plans, forecasts and KPIs.",
+    "nav.hubMobile.accompagnement.sub": "Plans, forecasts and steering.",
     "nav.hubMobile.assistance.sub": "Day-to-day files, compliance, delivery.",
     "nav.hubMobile.formations.sub": "Workshops and skills uplift.",
     "ui.scroll.prev": "Scroll left",
@@ -398,7 +398,7 @@ export const MESSAGES: Record<Locale, Messages> = {
     "home.hero.float1.k": "Compliance",
     "home.hero.float1.v": "Ongoing tax monitoring",
     "home.hero.float2.k": "Performance",
-    "home.hero.float2.v": "KPIs & monthly reporting",
+    "home.hero.float2.v": "Monthly reporting & steering",
     "home.hero.stats.kicker": "Key figures",
     "home.hero.stat1": "Years of experience",
     "home.hero.stat2": "Areas of expertise",

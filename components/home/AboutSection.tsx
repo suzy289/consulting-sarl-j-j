@@ -9,7 +9,7 @@ import { SITE, WHATSAPP_LINK } from "@/lib/constants";
 import { useI18n } from "@/components/i18n/I18nProvider";
 import { getAboutCopy } from "@/lib/about";
 
-const HERO_BG = "/images/history.jpg";
+const HERO_BG = "/images/accounting.webp";
 
 const fadeUp = {
   initial: { opacity: 0 },
@@ -186,7 +186,7 @@ export function AboutSection() {
                           {t("home.about.card.expK")}
                         </p>
                         <div className="flex items-baseline gap-1">
-                          <p className="text-2xl font-black tracking-tight text-white md:text-3xl">5</p>
+                          <p className="text-2xl font-black tracking-tight text-white md:text-3xl">8</p>
                           <span className="text-sm font-bold text-[#C9A84C]">{t("home.about.card.expUnit")}</span>
                         </div>
                         <div className="mt-2 flex items-center gap-2">

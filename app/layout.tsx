@@ -13,15 +13,12 @@ const STRIP_CURSOR_ATTR_SCRIPT = `(function(){function s(n){if(!n||n.nodeType!==
 
 export const metadata: Metadata = {
   metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || "https://jjconsulting.cm"),
-  title: "J & J Consulting SARL | Cabinet d'Audit, Comptabilité & Conseil Fiscal — Yaoundé",
+  title: "J & J Consulting SARL | Cabinet d'Audit, Comptabilité & Conseils fiscaux — Yaoundé",
   description:
-    "J & J Consulting SARL est votre cabinet d'audit, comptabilité, conseil fiscal et finance à Yaoundé, Cameroun. Fondé par Darlain Dongmo. Devis gratuit. 5 ans d'expérience.",
-  keywords: "cabinet comptable Yaoundé, audit Cameroun, conseil fiscal, J&J Consulting",
-  icons: {
-    icon: "/logo.png",
-  },
+    "J & J Consulting SARL est votre cabinet d'audit, comptabilité, conseils fiscaux et finance à Yaoundé, Cameroun. Fondé par Darlain Dongmo. Devis gratuit. 5 ans d'expérience.",
+  keywords: "cabinet comptable Yaoundé, audit Cameroun, conseils fiscaux, J&J Consulting",
   openGraph: {
-    title: "J & J Consulting SARL | Audit & Conseil Fiscal Yaoundé",
+    title: "J & J Consulting SARL | Audit & Conseils fiscaux Yaoundé",
     type: "website",
     images: ["/logo.png"],
   },

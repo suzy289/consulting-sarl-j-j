@@ -1,8 +1,8 @@
 export const SITE = {
   name: "J & J Consulting SARL",
-  tagline: "Votre partenaire en Audit, Comptabilité & Conseil Fiscal",
+  tagline: "Votre partenaire en Audit, Comptabilité & Conseils fiscaux",
   location: "Quartier Yaoundé / Quartier Fouda, Yaoundé, Cameroun",
-  email: "suzynoumbissi@gmail.com",
+  email: "jjconsultingsarl@gmail.com",
   whatsapp: "237694944616",
   phones: ["(+237) 6 94 94 46 16", "(+237) 6 78 45 67 81"],
   address: "Quartier Yaoundé / Quartier Fouda, Yaoundé, Cameroun",

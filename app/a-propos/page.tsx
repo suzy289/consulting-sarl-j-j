@@ -40,56 +40,40 @@ export default async function AProposPage() {
         />
 
         <span
-          className="pointer-events-none absolute -right-6 top-[18%] hidden select-none font-serif text-[clamp(5.5rem,16vw,12rem)] font-bold leading-none tracking-tight text-[#C9A84C]/[0.08] md:block lg:right-[6%] lg:top-[22%]"
+          className="pointer-events-none absolute left-1/2 top-[18%] hidden -translate-x-1/2 select-none font-serif text-[clamp(5.5rem,16vw,12rem)] font-bold leading-none tracking-tight text-[#C9A84C]/[0.08] md:block lg:top-[22%]"
           aria-hidden
         >
           J&J
         </span>
 
         <div className="relative mx-auto flex h-full min-h-[inherit] w-full max-w-7xl flex-col justify-center px-6 lg:px-16">
-          <div className="grid items-center gap-14 lg:grid-cols-12 lg:gap-10">
-            <div className="about-hero-intro lg:col-span-7">
-              <p className="mb-3 text-[10px] font-semibold uppercase tracking-[4px] text-[#9A7B3A]">
-                {copy.breadcrumbAbout}
-              </p>
-              <div className="mb-6 h-1 w-12 rounded-full bg-gradient-to-r from-[#C9A84C] to-[#C9A84C]/30" />
-              <h1 className="max-w-xl font-serif text-[2rem] font-semibold leading-[1.15] tracking-tight text-[#0A0A0A] sm:text-4xl md:text-5xl lg:text-[2.75rem] lg:leading-[1.12] xl:text-6xl">
-                {copy.heroTitle.split("\n").map((line, i) => (
-                  <span key={i} className="block">
-                    {line}
-                  </span>
-                ))}
-              </h1>
-              <p className="mt-7 max-w-lg border-l-2 border-[#C9A84C]/50 pl-5 text-base leading-relaxed text-gray-600 md:text-lg">
-                {copy.heroSubtitle}
-              </p>
-              <nav className="mt-10 flex flex-wrap items-center gap-x-2 text-sm text-gray-500" aria-label="Fil d'Ariane">
-                <Link href="/" className="transition-colors hover:text-[#C9A84C]">
-                  {copy.breadcrumbHome}
-                </Link>
-                <span className="text-gray-300" aria-hidden>
-                  /
+          <div className="about-hero-intro mx-auto w-full max-w-2xl text-center lg:max-w-3xl">
+            <p className="mb-3 text-[10px] font-semibold uppercase tracking-[4px] text-[#9A7B3A]">
+              {copy.breadcrumbAbout}
+            </p>
+            <div className="mx-auto mb-6 h-1 w-12 rounded-full bg-gradient-to-r from-[#C9A84C] to-[#C9A84C]/30" />
+            <h1 className="mx-auto max-w-xl font-serif text-[1.4rem] font-semibold leading-[1.15] tracking-tight text-[#0A0A0A] sm:text-4xl md:text-5xl lg:text-[1.85rem] lg:leading-[1.12] xl:text-6xl">
+              {copy.heroTitle.split("\n").map((line, i) => (
+                <span key={i} className="block">
+                  {line}
                 </span>
-                <span className="font-medium text-[#0A0A0A]">{copy.breadcrumbAbout}</span>
-              </nav>
-            </div>
-
-            <div
-              className="relative mx-auto hidden h-72 w-full max-w-sm lg:col-span-5 lg:mx-0 lg:block lg:h-80 lg:max-w-none"
-              aria-hidden
+              ))}
+            </h1>
+            <p className="mx-auto mt-7 max-w-lg border-t-2 border-[#C9A84C]/40 pt-6 text-base leading-relaxed text-gray-600 md:text-lg">
+              {copy.heroSubtitle}
+            </p>
+            <nav
+              className="mt-10 flex flex-wrap items-center justify-center gap-x-2 text-sm text-gray-500"
+              aria-label="Fil d'Ariane"
             >
-              <div className="absolute inset-0 rounded-[2rem] bg-gradient-to-br from-[#C9A84C]/20 via-white/30 to-transparent ring-1 ring-[#C9A84C]/20" />
-              <div className="absolute inset-[8%] overflow-hidden rounded-2xl border border-[#0A0A0A]/[0.06] bg-white/70 shadow-[0_25px_60px_-20px_rgba(10,10,10,0.12)] backdrop-blur-[2px]">
-                <Image
-                  src="/images/history.jpg"
-                  alt=""
-                  fill
-                  className="object-cover object-center"
-                  sizes="(max-width: 1024px) 0vw, 420px"
-                  priority
-                />
-              </div>
-            </div>
+              <Link href="/" className="transition-colors hover:text-[#C9A84C]">
+                {copy.breadcrumbHome}
+              </Link>
+              <span className="text-gray-300" aria-hidden>
+                /
+              </span>
+              <span className="font-medium text-[#0A0A0A]">{copy.breadcrumbAbout}</span>
+            </nav>
           </div>
         </div>
       </section>

@@ -122,8 +122,14 @@ export default async function ReferencesPage() {
           aria-hidden
         />
         <div className="absolute inset-0 bg-black/60" aria-hidden />
-        <div className="reference-stars-layer" aria-hidden />
-        <div className="reference-stars-layer reference-stars-layer-fast" aria-hidden />
+        <div
+          className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_85%_70%_at_15%_40%,rgba(201,168,76,0.14),transparent_58%),radial-gradient(ellipse_55%_45%_at_95%_15%,rgba(201,168,76,0.08),transparent_52%),linear-gradient(180deg,rgba(10,10,10,0.15)_0%,transparent_45%,rgba(10,10,10,0.35)_100%)]"
+          aria-hidden
+        />
+        <div
+          className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-[#C9A84C]/35 to-transparent"
+          aria-hidden
+        />
         <div className="relative z-10 mx-auto w-full max-w-7xl px-4 py-16 sm:px-6 md:py-20 lg:px-16 lg:py-24">
           <div
             className="pointer-events-none absolute -bottom-14 -left-10 z-10 h-32 w-64 rounded-t-full border-[3px] border-white border-b-0 bg-white"

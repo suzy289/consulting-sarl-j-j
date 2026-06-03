@@ -49,7 +49,7 @@ export function Navbar() {
       <div className="border-b border-white/10 bg-[#0A0A0A] text-white">
         <div className="hidden mx-auto h-8 max-w-7xl items-center justify-between px-6 text-[10px] tracking-[0.08em] lg:px-16">
           <p className="font-medium text-white/80">
-            Audit | Comptabilite | Fiscalite | Conseil strategique
+            Audit | Comptabilité | Fiscalité | Conseils stratégiques
           </p>
           <p className="text-white/80">
             {SITE.phones[0]} · {SITE.email}

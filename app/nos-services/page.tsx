@@ -92,7 +92,7 @@ export default async function NosServicesPage() {
               </div>
               <div className="book-page-layer book-page-c">
                 <Image
-                  src={encodeURI("/images/bat ohada.jpg")}
+                  src="/images/ohada.jpeg"
                   alt={t(locale, "services.hero.alt2")}
                   fill
                   className="object-cover"

@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server";
 import { Resend } from "resend";
 
-const DEFAULT_CONTACT_EMAIL = "suzynoumbissi@gmail.com";
+const DEFAULT_CONTACT_EMAIL = "jjconsultingsarl@gmail.com";
 
 function escapeHtml(s: string) {
   return s

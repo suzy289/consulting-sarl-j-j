@@ -117,7 +117,7 @@ export function ValuesSection() {
             <p className="mb-3 text-[10px] font-semibold uppercase tracking-[4px] text-[#C9A84C]">
               {t("home.values.kicker")}
             </p>
-            <h2 className="mb-8 max-w-[22ch] font-sans text-3xl font-extrabold leading-[1.15] tracking-tight text-[#C9A84C] md:text-4xl lg:text-[2.2rem] xl:text-[2.65rem]">
+            <h2 className="mb-8 max-w-[22ch] font-sans text-3xl font-extrabold leading-[1.15] tracking-tight text-[#C9A84C] md:text-4xl lg:text-[1.5rem] xl:text-[1.8rem]">
               {t("home.values.title")}
             </h2>
 

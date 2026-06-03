@@ -31,7 +31,7 @@ export const services: Service[] = [
     description:
       "Étude de faisabilité, choix de la forme juridique et fiscale, rédaction des statuts, immatriculation et accompagnement dans toutes les démarches administratives.",
     items: [
-      "Conseils formes juridiques et fiscales",
+      "Conseil sur les formes juridiques et fiscales",
       "Rédaction des statuts et immatriculation",
     ],
     icon: Building2,
@@ -44,7 +44,7 @@ export const services: Service[] = [
     description:
       "Tenue comptable, suivi des opérations courantes, préparation des états financiers et mise en place d'outils de pilotage.",
     items: [
-      "Tenue des operations comptable comptable",
+      "Tenue des opérations comptables",
       "Bilans et comptes de résultat",
       "Comptabilité analytique et tableaux de bord",
     ],
@@ -53,7 +53,7 @@ export const services: Service[] = [
   {
     id: 3,
     slug: "fiscalite-social",
-    title: "Fiscalite et cnps",
+    title: "Fiscalité et CNPS",
     subtitle: "Assistance fiscale et sociale",
     description:
       "Prise en charge des déclarations fiscales et sociales, optimisation fiscale et sécurisation de vos relations avec l'administration.",
@@ -115,7 +115,7 @@ export const services: Service[] = [
     description:
       "Analyse des besoins, choix et déploiement de logiciels de gestion adaptés à votre activité (Sage Saari).",
     items: [
-      "Analyse des besoins systeme d'information",
+      "Analyse des besoins système d'information",
       "Choix et installation du logiciel",
       "Paramétrage et formation des utilisateurs",
     ],
@@ -124,12 +124,12 @@ export const services: Service[] = [
   {
     id: 8,
     slug: "conseil-strategique",
-    title: "Conseil stratégique",
-    subtitle: "Conseil en gestion et stratégie",
+    title: "Conseils stratégiques",
+    subtitle: "Conseils en gestion et stratégies",
     description:
       "Conseils en gestion administrative et financière, décisions stratégiques et recherche de financement.",
     items: [
-      "Conseil en gestion administrative et financière",
+      "Conseils en gestion administrative et financière",
       "Stratégies de développement et financement",
     ],
     icon: Lightbulb,

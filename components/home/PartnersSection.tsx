@@ -41,7 +41,7 @@ export function PartnersSection() {
           <p className="mb-3 text-[10px] font-semibold uppercase tracking-[0.35em] text-[#C9A84C]">
             {t("home.partners.kicker")}
           </p>
-          <h2 className="font-sans text-3xl font-bold tracking-tight text-white sm:text-4xl md:text-[2.5rem] md:leading-tight">
+          <h2 className="font-sans text-3xl font-bold tracking-tight text-white sm:text-4xl md:text-[1.75rem] md:leading-tight">
             {t("home.partners.title")}
           </h2>
           <p className="mx-auto mt-4 max-w-2xl text-base font-normal text-white/70 md:text-lg">

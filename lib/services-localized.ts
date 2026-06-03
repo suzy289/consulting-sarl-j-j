@@ -66,7 +66,7 @@ const SERVICES_EN: Record<string, ServiceText> = {
     description:
       "Implementation of steering tools to track budgets, costs and margins, and improve profitability.",
     items: [
-      "KPIs and budget monitoring",
+      "Budget monitoring and performance tracking",
       "Cost of sales and margin analysis",
       "Break-even thresholds",
     ],

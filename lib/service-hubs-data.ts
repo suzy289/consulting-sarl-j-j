@@ -22,7 +22,7 @@ export type ServiceHubPayload = {
   kicker: string;
   title: string;
   lead: string;
-  sections: { heading: string; paragraphs: string[]; bullets?: string[] }[];
+  sections: { heading: string; paragraphs: string[]; bullets?: string[]; numbered?: boolean }[];
   /** Ancres `/nos-services#…` pertinentes pour ce périmètre */
   relatedServiceSlugs: string[];
   /** Gabarit visuel de la page */
@@ -34,7 +34,7 @@ const HUBS: Record<ServiceHubSlug, Record<Locale, ServiceHubPayload>> = {
   "domaines-intervention": {
     fr: {
       metaTitle:
-        "Domaines d’intervention | J & J Consulting — Comptabilité, fiscalité et conseil",
+        "Domaines d’intervention | J & J Consulting — Comptabilité, fiscalité et conseils",
       metaDescription:
         "Cabinet d’audit et de conseil à Yaoundé : création d’entreprise, comptabilité, fiscalité et social, pilotage financier, systèmes d’information, formations. Une vision synthétique de nos lignes métier.",
       kicker: "Périmètre du cabinet",
@@ -45,7 +45,7 @@ const HUBS: Record<ServiceHubSlug, Record<Locale, ServiceHubPayload>> = {
         {
           heading: "Une organisation en filières complémentaires",
           paragraphs: [
-            "Pour rester lisible et efficient, nous regroupons nos compétences en cinq grands périmètres : le conseil à la décision (stratégie, montage financier et organisation), l’accompagnement « projet et pilotage » (business plans, prévisionnels, contrôle de gestion), l’assistance opérationnelle au quotidien (tenue et fiabilisation des comptes, déclarations, paie lorsque pertinent), ainsi que les formations ciblées sur les usages métiers, la fiscalité ou les outils.",
+            "Pour rester lisible et efficient, nous regroupons nos compétences en cinq grands périmètres : les conseils à la décision (stratégies, montages financiers et organisations), l’accompagnement « projet et pilotage » (business plans, prévisionnels, contrôle de gestion), l’assistance opérationnelle au quotidien (tenue et fiabilisation des comptes, déclarations, paie lorsque pertinent), ainsi que les formations ciblées sur les usages métiers, la fiscalité ou les outils.",
             "Chaque filière peut intervenir ponctuellement ou sur la durée, seule ou en lien avec nos autres équipes, selon vos enjeux (levée de fonds, redressement d’échéances, renforcement interne ou audit de processus). Les fiches détaillées disponibles depuis la page « Nos services » décrivent précisément les livrables, les délais et les modalités d’interaction avec votre équipe.",
           ],
         },
@@ -133,19 +133,19 @@ const HUBS: Record<ServiceHubSlug, Record<Locale, ServiceHubPayload>> = {
 
   conseil: {
     fr: {
-      metaTitle: "Conseil stratégique & organisation | J & J Consulting",
+      metaTitle: "Conseils stratégiques & organisation | J & J Consulting",
       metaDescription:
-        "Conseil en gestion, organisation administrative et financière, stratégies de développement et montages de financement. Cabinet basé à Yaoundé.",
+        "Conseils en gestion, organisation administrative et financière, stratégies de développement et montages de financement. Cabinet basé à Yaoundé.",
       kicker: "Vision & décision",
-      title: "Conseil stratégique et organisationnel",
+      title: "Conseils stratégiques et organisationnels",
       lead:
-        "Le conseil prend tout son sens lorsqu’il traduit vos objectifs en plans d’action réalistes, priorisés et mesurables. Nous intervenons aussi bien en soutien ponctuel (arbitrages sensibles, restructurations ciblées) qu’accompagnement dans la durée, pour garder vos décisions financières, juridiques (dans nos limites de compétences) et opérationnelles parfaitement alignées avec votre trajectoire de croissance ou de diversification.",
+        "Les conseils prennent tout leur sens lorsqu’ils traduisent vos objectifs en plans d’action réalistes, priorisés et mesurables. Nous intervenons aussi bien en soutien ponctuel (arbitrages sensibles, restructurations ciblées) qu’accompagnement dans la durée, pour garder vos décisions financières, juridiques (dans nos limites de compétences) et opérationnelles parfaitement alignées avec votre trajectoire de croissance ou de diversification.",
       sections: [
         {
           heading: "Ce que nous apportons",
           paragraphs: [
             "Une lecture structurante de vos enjeux : cartographie du risque, positionnement financier réel, clarification des tensions entre rentabilité, trésorerie et investissements. Nous intégrons systématiquement la temporalité réglementaire (échéances fiscales, obligations sociales) pour éviter que la stratégie ne se heurte aux contraintes du terrain.",
-            "Un mode de conseil pragmatique, orienté exécution : tableaux synthétiques, feuilles de route partagées, points d’attention pour votre comité ou votre conseil d’administration lorsque vos statuts ou votre gouvernance le nécessitent.",
+            "Une démarche de conseils pragmatique, orientée exécution : tableaux synthétiques, feuilles de route partagées, points d’attention pour votre comité ou votre conseil d’administration lorsque vos statuts ou votre gouvernance le nécessitent.",
           ],
         },
         {
@@ -161,7 +161,7 @@ const HUBS: Record<ServiceHubSlug, Record<Locale, ServiceHubPayload>> = {
         {
           heading: "Articulation avec le reste du cabinet",
           paragraphs: [
-            "Lorsque le conseil doit s’incarner dans des livrables comptables, fiscaux ou des tableaux de bord, nous activons nos filières « accompagnement opérationnel » et « assistance » sans rupture pour vous éviter une multiplication d’interfaces — un seul interlocutaire projet garde la cohérence globale.",
+            "Lorsque les conseils doivent s’incarner dans des livrables comptables, fiscaux ou des tableaux de bord, nous activons nos filières « accompagnement opérationnel » et « assistance » sans rupture pour vous éviter une multiplication d’interfaces — un seul interlocutaire projet garde la cohérence globale.",
           ],
         },
       ],
@@ -198,7 +198,7 @@ const HUBS: Record<ServiceHubSlug, Record<Locale, ServiceHubPayload>> = {
         {
           heading: "Cross‑team synergy",
           paragraphs: [
-            "When mandates require accounting, payroll or KPI deployment, downstream colleagues join under a unified programme cadence.",
+            "When mandates require accounting, payroll or management reporting deployment, downstream colleagues join under a unified programme cadence.",
           ],
         },
       ],
@@ -213,7 +213,7 @@ const HUBS: Record<ServiceHubSlug, Record<Locale, ServiceHubPayload>> = {
       metaTitle:
         "Accompagnement opérationnel — pilotage, business plans & prévisionnels | J & J Consulting",
       metaDescription:
-        "Construire et suivre des plans financiers solides : business plans, analyses de sensibilité, contrôle de gestion, KPI. Cabinet à Yaoundé.",
+        "Construire et suivre des plans financiers solides : business plans, analyses de sensibilité, contrôle de gestion. Cabinet à Yaoundé.",
       kicker: "Projets & performance",
       title: "Accompagnement opérationnel au pilotage",
       lead:
@@ -225,7 +225,7 @@ const HUBS: Record<ServiceHubSlug, Record<Locale, ServiceHubPayload>> = {
             "Business plans multicritères (base, pessimiste & optimiste) avec plan de financement équilibré",
             "Tableaux de flux et tableaux synthétiques de rentabilité par segment lorsque vos données le permettent",
             "Cahiers d’hypothèses et documentation pour banques ou partenaires",
-            "Socle KPI / contrôle de gestion adapté aux effectifs disponibles dans la structure cliente",
+            "Socle de contrôle de gestion adapté aux effectifs disponibles dans la structure cliente",
           ],
           paragraphs: [],
         },
@@ -242,9 +242,9 @@ const HUBS: Record<ServiceHubSlug, Record<Locale, ServiceHubPayload>> = {
     },
     en: {
       metaTitle:
-        "Operational steering — forecasts, KPIs & business plans | J & J Consulting",
+        "Operational steering — forecasts & business plans | J & J Consulting",
       metaDescription:
-        "Investment‑grade forecasting, KPI architecture and managerial accounting support for Cameroon‑based SMEs and institutions.",
+        "Investment‑grade forecasting and managerial accounting support for Cameroon‑based SMEs and institutions.",
       kicker: "Performance lane",
       title: "Operational steering support",
       lead:
@@ -256,7 +256,7 @@ const HUBS: Record<ServiceHubSlug, Record<Locale, ServiceHubPayload>> = {
             "Stress‑tested scenario planning with articulated funding envelopes",
             "Segment profitability lenses when granular data permits",
             "Assumption trackers for stakeholder transparency",
-            "Lean KPI dashboards matched to organisational bandwidth",
+            "Lean management dashboards matched to organisational bandwidth",
           ],
           paragraphs: [],
         },
@@ -289,13 +289,13 @@ const HUBS: Record<ServiceHubSlug, Record<Locale, ServiceHubPayload>> = {
           bullets: [
             "Tenue de comptabilité générale et engagements associés jusqu’aux états périodiques",
             "Démarches CNPS lorsque vos effectifs créent cette obligation ou ce besoin d’audit social",
-            "Préparation des déclarations fiscales recurrentes avec archivages probants",
-            "Interfaçages logiciels (ex. environnement Sage) pour fiabiliser saisie & contrôles",
+            "Préparation des déclarations fiscales récurrentes avec archivages probants",
+            "Interface logiciel (ex. Sage, Synopsis) pour fiabiliser la saisie, les contrôles et la gestion financière",
           ],
           paragraphs: [],
         },
         {
-          heading: "Articulation prudentielle avec le conseil",
+          heading: "Articulation prudentielle avec les conseils",
           paragraphs: [
             "Une information comptable structurée alimente directement les analyses financières des dirigeants. Nous créons cette passerelle systématique : tableau de synthèse périodique, points vigilance sur provisions, alertes anomalies et recommandations d’harmonisation de politiques internes lorsque vos risques nous y conduisent légitimement.",
           ],
@@ -327,7 +327,7 @@ const HUBS: Record<ServiceHubSlug, Record<Locale, ServiceHubPayload>> = {
             "General ledger upkeep through periodic reporting packs when requested",
             "Social security routines where statutes apply",
             "Recurring tax workflows with reproducible attachments",
-            "ERP alignment (e.g., Sage footprints) bridging field operations and finance HQ",
+            "Software interfaces (e.g. Sage, Synopsis) for reliable data entry, controls and financial management",
           ],
           paragraphs: [],
         },
@@ -355,21 +355,47 @@ const HUBS: Record<ServiceHubSlug, Record<Locale, ServiceHubPayload>> = {
       metaTitle:
         "Formations professionnelles — compta, fiscalité, pilotage | J & J Consulting",
       metaDescription:
-        "Parcours de formation sur mesure pour équipes financières, dirigeants et fonction support : comptabilité, fiscalité, contrôle interne léger.",
+        "Trois modules de formation : fiscalité (Harmony, OTP, contentieux), CNPS (employeur et salariés) et audit interne (balance, DSF, comptes et provisions).",
       kicker: "Montée en compétences",
       title: "Formations adaptées aux enjeux de votre équipe",
       lead:
-        "La transmission constitue le prolongement naturel du conseil. Nous concevons des séances pragmatiques, par petits groupes, pour que vos équipes passent rapidement à l’usage opérationnel (logiciels standards, problématiques fiscales classiques ou avancées, lecture de KPI). Les contenus peuvent prendre la forme d’ateliers, de sessions présentielles ou distancielles, ou de programmes découpés lorsque vos effectifs ont des niveaux très hétérogènes.",
+        "La transmission constitue le prolongement naturel des conseils. Nous concevons des séances pragmatiques, par petits groupes, pour que vos équipes passent rapidement à l’usage opérationnel (logiciels standards, problématiques fiscales classiques ou avancées). Les contenus peuvent prendre la forme d’ateliers, de sessions présentielles ou distancielles, ou de programmes découpés lorsque vos effectifs ont des niveaux très hétérogènes.",
       sections: [
         {
-          heading: "Principaux modules possibles",
-          bullets: [
-            "Lecture financière ou comptabilité « raisonnement » destinée aux métiers non financiers",
-            "Ateliers réglementaires ciblés (délais, périmètres, pièges classiques lorsqu’actualisés juridiquement)",
-            "Mise à niveau sur outils métier après déploiement de gestion ERP",
-            "Sensibilisation à la lutte anticorruption financière léger pour comités projet",
+          heading: "Module 1 — Fiscalité",
+          paragraphs: [
+            "Formations orientées plateformes dématérialisées et maîtrise des procédures en situation de contentieux.",
           ],
-          paragraphs: [],
+          bullets: [
+            "Maîtrise des plateformes Harmony",
+            "Maîtrise des plateformes OTP",
+            "Maîtrise des procédures fiscales en cas de contentieux",
+          ],
+        },
+        {
+          heading: "Module 2 — CNPS",
+          paragraphs: [
+            "Accompagnement des démarches employeur et salarié auprès de la Caisse Nationale de Prévoyance Sociale.",
+          ],
+          bullets: [
+            "Création et immatriculation d’un compte employeur",
+            "Immatriculation d’un employé",
+          ],
+        },
+        {
+          heading: "Module 3 — Audit interne",
+          paragraphs: [
+            "Programme technique pour renforcer l’analyse comptable, la lecture des états financiers et le contrôle interne.",
+          ],
+          bullets: [
+            "Analyse de la cohérence d’une balance et d’une DSF",
+            "Fonctionnement des comptes de bilan, de gestion et de tiers",
+            "Fonctionnement des comptes d’impôts et CNPS",
+            "Fonctionnement des comptes de trésorerie",
+            "Les charges et produits constatés d’avance",
+            "Les amortissements et provisions",
+          ],
+          numbered: true,
         },
         {
           heading: "Modalités réalistes",
@@ -386,21 +412,47 @@ const HUBS: Record<ServiceHubSlug, Record<Locale, ServiceHubPayload>> = {
       metaTitle:
         "Professional training — accounting & compliance upskilling | J & J Consulting",
       metaDescription:
-        "Tailored curricula for finance and non‑finance teams on bookkeeping discipline, filings literacy and KPI interpretation.",
+        "Three training modules: tax (Harmony, OTP, disputes), social security (employer & employee registration) and internal audit.",
       kicker: "Capability building",
       title: "Workforce‑ready finance training",
       lead:
         "Training that cannot be applied tomorrow is ineffective—our modules blend theory, coached exercises on real templates and facilitation notes your HR teams can revive later.",
       sections: [
         {
-          heading: "Signature modules",
-          bullets: [
-            "Financial storytelling for executives outside finance control",
-            "Regulatory refreshers calibrated to Cameroon operating realities",
-            "Post‑deployment ERP onboarding paths",
-            "Lightweight anticorruption/fraud awareness overlays",
+          heading: "Module 1 — Tax",
+          paragraphs: [
+            "Training focused on digital platforms and tax procedures in dispute situations.",
           ],
-          paragraphs: [],
+          bullets: [
+            "Harmony platform mastery",
+            "OTP platform mastery",
+            "Tax procedures in contentious cases",
+          ],
+        },
+        {
+          heading: "Module 2 — CNPS",
+          paragraphs: [
+            "Support for employer and employee registration with the National Social Security Fund.",
+          ],
+          bullets: [
+            "Creation and registration of an employer account",
+            "Employee registration",
+          ],
+        },
+        {
+          heading: "Module 3 — Internal audit",
+          paragraphs: [
+            "Technical programme to strengthen accounting analysis, financial statement review and internal control.",
+          ],
+          bullets: [
+            "Consistency analysis of trial balance and statutory financial statements (DSF)",
+            "Balance sheet, management and third-party accounts",
+            "Tax and CNPS accounts",
+            "Treasury accounts",
+            "Accrued expenses and deferred income",
+            "Depreciation and provisions",
+          ],
+          numbered: true,
         },
         {
           heading: "Programme hygiene",

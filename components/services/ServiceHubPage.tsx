@@ -62,7 +62,7 @@ function AlternatingCardCornerDecor({ index }: { index: number }) {
   );
 }
 
-/** Titre magazine : soulignement animé uniquement sur la 1re partie (ex. « Conseil stratégique ») */
+/** Titre magazine : soulignement animé uniquement sur la 1re partie (ex. « Conseils stratégiques ») */
 function MagazineHubTitle({ title, locale }: { title: string; locale: Locale }) {
   let head: string | null = null;
   let tail: string | null = null;
@@ -374,7 +374,7 @@ export function ServiceHubPage({ slug, locale }: Props) {
             <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
               <div>
                 <p className="mb-4 text-[10px] font-semibold uppercase tracking-[4px] text-[#C9A84C]">{hub.kicker}</p>
-                <h1 className="font-serif text-4xl font-semibold leading-[1.1] md:text-[2.65rem]">
+                <h1 className="font-serif text-4xl font-semibold leading-[1.1] md:text-[1.8rem]">
                   <MagazineHubTitle title={hub.title} locale={locale} />
                 </h1>
                 <p className="mt-8 text-lg leading-relaxed text-white/78">{hub.lead}</p>
@@ -446,7 +446,7 @@ export function ServiceHubPage({ slug, locale }: Props) {
             <div className="min-w-0 flex-1">
               <Breadcrumb locale={locale} title={hub.title} />
               <p className="mb-4 text-[10px] font-semibold uppercase tracking-[4px] text-[#C9A84C]">{hub.kicker}</p>
-              <h1 className="jj-focus-cards-hero-title font-serif text-4xl leading-[1.12] md:text-5xl lg:text-[3.15rem] lg:leading-[1.06]">
+              <h1 className="jj-focus-cards-hero-title font-serif text-4xl leading-[1.12] md:text-5xl lg:text-[2.15rem] lg:leading-[1.06]">
                 {hub.title}
               </h1>
               <p className="mt-8 text-lg leading-relaxed text-[#4a453d]">{hub.lead}</p>
@@ -551,7 +551,7 @@ export function ServiceHubPage({ slug, locale }: Props) {
               >
                 <AlternatingCardCornerDecor index={i} />
                 <div className="relative z-[1] min-w-0">
-                  <h2 className="font-serif text-2xl font-semibold text-[#0A0A0A] md:text-3xl lg:text-[1.85rem]">
+                  <h2 className="font-serif text-2xl font-semibold text-[#0A0A0A] md:text-3xl lg:text-[1.35rem]">
                     {section.heading}
                   </h2>
                   {section.paragraphs.map((p, pi) => (
@@ -587,17 +587,17 @@ export function ServiceHubPage({ slug, locale }: Props) {
         <div className="mx-auto max-w-5xl px-6 text-center sm:px-8 lg:max-w-6xl lg:px-16">
           <Breadcrumb locale={locale} title={hub.title} />
           <p className="mb-4 mt-4 text-[10px] font-semibold uppercase tracking-[4px] text-[#9A7B3A]">{hub.kicker}</p>
-          <h1 className="font-serif text-4xl font-semibold leading-[1.12] md:text-5xl lg:text-[3.25rem]">{hub.title}</h1>
+          <h1 className="font-serif text-4xl font-semibold leading-[1.12] md:text-5xl lg:text-[2.2rem]">{hub.title}</h1>
           <p className="mx-auto mt-8 max-w-4xl text-lg leading-relaxed text-gray-600 lg:text-xl lg:leading-relaxed">
             {hub.lead}
           </p>
         </div>
         <div className="mx-auto mt-14 w-full max-w-5xl px-6 sm:px-8 lg:mt-16 lg:max-w-6xl lg:px-16">
-          <div className="rounded-[1.75rem] bg-gradient-to-br from-[#C9A84C]/45 via-[#D4BC7A]/35 to-[#B8943E]/40 p-[3px] shadow-[0_28px_80px_-32px_rgba(10,10,10,0.35)]">
+          <div className="mx-auto w-full max-w-sm sm:max-w-xl md:max-w-2xl lg:max-w-3xl rounded-[1.75rem] bg-gradient-to-br from-[#C9A84C]/45 via-[#D4BC7A]/35 to-[#B8943E]/40 p-[3px] shadow-[0_28px_80px_-32px_rgba(10,10,10,0.35)]">
             <div className="overflow-hidden rounded-[1.55rem] bg-[#0A0A0A] ring-1 ring-black/30">
-              <div className="relative aspect-video w-full min-h-[200px] sm:min-h-[260px] md:min-h-[300px] lg:min-h-[340px]">
+              <div className="relative aspect-video w-full">
                 <video
-                  className="absolute inset-0 h-full w-full object-cover object-center"
+                  className="absolute inset-0 h-full w-full object-contain object-center"
                   autoPlay
                   muted
                   loop
@@ -619,10 +619,21 @@ export function ServiceHubPage({ slug, locale }: Props) {
 
       <section className="bg-white py-16 lg:py-24">
         <div className="mx-auto max-w-5xl space-y-10 px-6 sm:px-8 lg:max-w-6xl lg:space-y-12 lg:px-16">
-          {hub.sections.map((section) => (
+          {hub.sections.map((section) => {
+            const isModule = section.heading.startsWith("Module");
+            const ListTag = section.numbered ? "ol" : "ul";
+            const listClass = section.numbered
+              ? "mt-6 list-decimal space-y-3 pl-5 marker:font-semibold marker:text-[#C9A84C]"
+              : "mt-6 space-y-3";
+
+            return (
             <div
               key={section.heading}
-              className="rounded-r-2xl border-l-[6px] border-[#C9A84C] bg-[#FFFCF7] p-8 shadow-sm ring-1 ring-[#C9A84C]/10 md:p-10 lg:p-12"
+              className={`rounded-r-2xl border-l-[6px] bg-[#FFFCF7] p-8 shadow-sm ring-1 ring-[#C9A84C]/10 md:p-10 lg:p-12 ${
+                isModule
+                  ? "border-l-[#C9A84C] bg-gradient-to-br from-[#FFFCF7] to-white"
+                  : "border-l-[#C9A84C]"
+              }`}
             >
               <h2 className="font-serif text-2xl font-semibold text-[#0A0A0A] md:text-3xl">{section.heading}</h2>
               {section.paragraphs.map((p, i) => (
@@ -631,17 +642,31 @@ export function ServiceHubPage({ slug, locale }: Props) {
                 </p>
               ))}
               {section.bullets?.length ? (
-                <ul className="mt-6 space-y-3">
+                <ListTag className={listClass}>
                   {section.bullets.map((b) => (
-                    <li key={b} className="flex gap-3 border-b border-[#C9A84C]/10 pb-3 last:border-0 last:pb-0">
-                      <span className="font-semibold text-[#C9A84C]">•</span>
-                      <span className="text-gray-700">{b}</span>
+                    <li
+                      key={b}
+                      className={`text-gray-700 ${
+                        section.numbered
+                          ? "border-b border-[#C9A84C]/10 pb-3 pl-1 last:border-0 last:pb-0"
+                          : "flex gap-3 border-b border-[#C9A84C]/10 pb-3 last:border-0 last:pb-0"
+                      }`}
+                    >
+                      {section.numbered ? (
+                        <span>{b}</span>
+                      ) : (
+                        <>
+                          <span className="font-semibold text-[#C9A84C]">•</span>
+                          <span>{b}</span>
+                        </>
+                      )}
                     </li>
                   ))}
-                </ul>
+                </ListTag>
               ) : null}
             </div>
-          ))}
+            );
+          })}
           <FormationsMissionStrip />
         </div>
       </section>
