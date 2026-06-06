@@ -13,6 +13,8 @@ export const MESSAGES: Record<Locale, Messages> = {
     "nav.references": "Références",
     "nav.contact": "Contact",
     "nav.quote": "Devis gratuit",
+    "nav.topTicker":
+      "Bienvenue sur J & J Consulting SARL — cabinet d'audit, comptabilité, conseil fiscal et finance · Expertise, rigueur et accompagnement professionnel pour les entreprises",
     "nav.allServices": "Voir tous les services →",
     "nav.serviceAxes": "Axes d’expertise",
     "nav.servicesDetail": "Fiches par filière",
@@ -285,6 +287,8 @@ export const MESSAGES: Record<Locale, Messages> = {
     "nav.references": "References",
     "nav.contact": "Contact",
     "nav.quote": "Free quote",
+    "nav.topTicker":
+      "Welcome to J & J Consulting SARL — audit, accounting, tax and finance advisory · Professional expertise, rigor and tailored support for businesses",
     "nav.allServices": "View all services →",
     "nav.serviceAxes": "Practice pillars",
     "nav.servicesDetail": "Service sheets",

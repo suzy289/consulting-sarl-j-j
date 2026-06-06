@@ -371,16 +371,21 @@ body {
   );
 }
 
-/* Or + texte noir (navbar « devis ») : ton plus soutenu depuis la gauche */
+/* Or + texte noir (navbar « devis ») : or → noir au survol */
 .jj-btn-slide-gold-darktext {
   color: #0a0a0a;
   background-image: linear-gradient(
     90deg,
-    #9e7b2e 0%,
-    #9e7b2e 50%,
+    #0a0a0a 0%,
+    #0a0a0a 50%,
     #c9a84c 50%,
     #c9a84c 100%
   );
+}
+
+.jj-btn-slide-gold-darktext:not(:disabled):hover,
+.jj-btn-slide-gold-darktext:not(:disabled):focus-visible {
+  color: #ffffff;
 }
 
 /* Carte À propos : or → ambre clair */

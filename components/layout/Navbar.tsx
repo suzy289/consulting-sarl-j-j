@@ -4,7 +4,7 @@ import { useState, useEffect, useMemo } from "react";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
 import Image from "next/image";
-import { Languages, Menu, X } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import { SITE, WHATSAPP_LINK } from "@/lib/constants";
 import { useI18n } from "@/components/i18n/I18nProvider";
 import { SERVICE_HUB_NAV_LABEL_KEYS } from "@/lib/service-hubs-data";
@@ -17,6 +17,27 @@ const navLinks = [
   { href: "/references", key: "nav.references" },
   { href: "/contact", key: "nav.contact" },
 ] as const;
+
+function LangFlag({ code, className = "h-3.5 w-5 shrink-0 rounded-[2px] shadow-sm ring-1 ring-black/10" }: { code: "fr" | "en"; className?: string }) {
+  if (code === "fr") {
+    return (
+      <svg viewBox="0 0 3 2" className={className} aria-hidden>
+        <rect width="1" height="2" fill="#002395" />
+        <rect x="1" width="1" height="2" fill="#fff" />
+        <rect x="2" width="1" height="2" fill="#ED2939" />
+      </svg>
+    );
+  }
+  return (
+    <svg viewBox="0 0 60 30" className={className} aria-hidden>
+      <rect width="60" height="30" fill="#012169" />
+      <path d="M0,0 L60,30 M60,0 L0,30" stroke="#fff" strokeWidth="6" />
+      <path d="M0,0 L60,30 M60,0 L0,30" stroke="#C8102E" strokeWidth="3.5" />
+      <path d="M30,0 v30 M0,15 h60" stroke="#fff" strokeWidth="10" />
+      <path d="M30,0 v30 M0,15 h60" stroke="#C8102E" strokeWidth="6" />
+    </svg>
+  );
+}
 
 export function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -42,7 +63,7 @@ export function Navbar() {
   const menuPanelClass = scrolled
     ? "border-gray-200 bg-white"
     : "border-white/20 bg-[#0A0A0A]";
-  const contactTicker = `${SITE.phones[0]} · ${SITE.email}`;
+  const welcomeTicker = t("nav.topTicker");
 
   return (
     <header className="fixed left-0 right-0 top-0 z-50">
@@ -55,7 +76,7 @@ export function Navbar() {
             {SITE.phones[0]} · {SITE.email}
           </p>
         </div>
-        <div className="navbar-contact-strip relative mx-auto h-8 w-full overflow-hidden">
+        <div className="navbar-contact-strip relative mx-auto h-8 w-full overflow-hidden" aria-label={welcomeTicker}>
           <div className="navbar-contact-ticker flex w-max min-h-8 items-center whitespace-nowrap">
             {Array.from({ length: 4 }).map((_, i) => (
               <span
@@ -63,7 +84,7 @@ export function Navbar() {
                 className="inline-flex shrink-0 items-center px-10 text-[10px] font-medium tracking-[0.06em] text-white/85"
                 aria-hidden={i !== 0}
               >
-                {contactTicker}
+                {welcomeTicker}
               </span>
             ))}
           </div>
@@ -198,29 +219,31 @@ export function Navbar() {
                 }`}
                 aria-label={t("lang.label")}
               >
-                <Languages className={`h-4 w-4 ${scrolled ? "text-[#0A0A0A]" : "text-white"}`} aria-hidden />
-                <span className={scrolled ? "text-[#0A0A0A]/85" : "text-white/85"}>{locale.toUpperCase()}</span>
+                <LangFlag code={locale} />
               </button>
               {langOpen && (
                 <div
                   className="absolute right-0 top-full mt-2 w-44 overflow-hidden rounded-xl border border-white/10 bg-[#0A0A0A] shadow-2xl"
                   role="menu"
                 >
-                  {[
-                    { id: "fr", label: t("lang.fr") },
-                    { id: "en", label: t("lang.en") },
-                  ].map((opt) => (
+                  {(
+                    [
+                      { id: "fr" as const, label: t("lang.fr") },
+                      { id: "en" as const, label: t("lang.en") },
+                    ] as const
+                  ).map((opt) => (
                     <button
                       key={opt.id}
                       type="button"
                       onMouseDown={(e) => e.preventDefault()}
-                      onClick={() => setLocale(opt.id as "fr" | "en")}
-                      className={`flex w-full items-center justify-between px-4 py-3 text-left text-sm transition ${
+                      onClick={() => setLocale(opt.id)}
+                      className={`flex w-full items-center gap-3 px-4 py-3 text-left text-sm transition ${
                         locale === opt.id ? "bg-white/10 text-white" : "text-white/80 hover:bg-white/8 hover:text-white"
                       }`}
                       role="menuitem"
                     >
-                      <span>{opt.label}</span>
+                      <LangFlag code={opt.id} />
+                      <span className="flex-1">{opt.label}</span>
                       {locale === opt.id && <span className="text-[#C9A84C]">●</span>}
                     </button>
                   ))}
@@ -232,7 +255,7 @@ export function Navbar() {
               href={WHATSAPP_LINK}
               target="_blank"
               rel="noopener noreferrer"
-              className="jj-btn-slide jj-btn-slide-gold-darktext bg-[#C9A84C] px-4 py-2 text-[10px] font-semibold uppercase tracking-[0.16em] shadow-md"
+              className="jj-btn-slide jj-btn-slide-gold-darktext rounded-md px-4 py-2 text-[10px] font-semibold uppercase tracking-[0.16em] shadow-md"
             >
               {t("nav.quote")}
             </a>
@@ -325,28 +348,30 @@ export function Navbar() {
                   <button
                     type="button"
                     onClick={() => setLocale("fr")}
-                    className={`rounded-full px-3 py-1 text-xs font-semibold transition ${
+                    aria-label={t("lang.fr")}
+                    className={`inline-flex items-center justify-center rounded-full p-1.5 transition ${
                       locale === "fr"
-                        ? "bg-[#C9A84C] text-black"
+                        ? "bg-[#C9A84C] ring-2 ring-[#C9A84C]/40"
                         : scrolled
-                          ? "bg-black/5 text-[#0A0A0A]/80 hover:bg-black/10"
-                          : "bg-white/5 text-white/80 hover:bg-white/10"
+                          ? "bg-black/5 hover:bg-black/10"
+                          : "bg-white/5 hover:bg-white/10"
                     }`}
                   >
-                    FR
+                    <LangFlag code="fr" className="h-4 w-[1.15rem]" />
                   </button>
                   <button
                     type="button"
                     onClick={() => setLocale("en")}
-                    className={`rounded-full px-3 py-1 text-xs font-semibold transition ${
+                    aria-label={t("lang.en")}
+                    className={`inline-flex items-center justify-center rounded-full p-1.5 transition ${
                       locale === "en"
-                        ? "bg-[#C9A84C] text-black"
+                        ? "bg-[#C9A84C] ring-2 ring-[#C9A84C]/40"
                         : scrolled
-                          ? "bg-black/5 text-[#0A0A0A]/80 hover:bg-black/10"
-                          : "bg-white/5 text-white/80 hover:bg-white/10"
+                          ? "bg-black/5 hover:bg-black/10"
+                          : "bg-white/5 hover:bg-white/10"
                     }`}
                   >
-                    EN
+                    <LangFlag code="en" className="h-4 w-[1.15rem]" />
                   </button>
                 </div>
               </div>
@@ -357,7 +382,7 @@ export function Navbar() {
                 href={WHATSAPP_LINK}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="jj-btn-slide jj-btn-slide-gold-darktext bg-[#C9A84C] px-5 py-2 text-center text-xs font-semibold uppercase tracking-widest shadow-md"
+                className="jj-btn-slide jj-btn-slide-gold-darktext rounded-md px-5 py-2 text-center text-xs font-semibold uppercase tracking-widest shadow-md"
               >
                 {t("nav.quote")}
               </a>

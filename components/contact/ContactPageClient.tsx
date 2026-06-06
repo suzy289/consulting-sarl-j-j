@@ -12,7 +12,7 @@ import {
   MessageSquareText,
   Send,
 } from "lucide-react";
-import { SITE, WHATSAPP_LINK } from "@/lib/constants";
+import { GOOGLE_MAPS_EMBED_URL, GOOGLE_MAPS_URL, SITE, WHATSAPP_LINK } from "@/lib/constants";
 import { useI18n } from "@/components/i18n/I18nProvider";
 import { getServicesForLocale } from "@/lib/services-localized";
 
@@ -492,7 +492,7 @@ export function ContactPageClient() {
           </h2>
           <div className="rounded-lg overflow-hidden border border-gray-200 shadow-sm h-[400px]">
             <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d127405.52725645406!2d11.5021!3d3.848!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x108bcf7a5d6e2d13%3A0x3f3d3e3e3e3e3e3e!2sYaound%C3%A9%2C%20Cameroun!5e0!3m2!1sfr!2scm!4v1710580800000"
+              src={GOOGLE_MAPS_EMBED_URL}
               width="100%"
               height="100%"
               style={{ border: 0 }}
@@ -505,7 +505,7 @@ export function ContactPageClient() {
           </div>
           <p className="text-gray-600 text-sm mt-4">
             <a
-              href="https://www.google.com/maps/place/Umdeny/@3.8483995,11.5191104,17z/data=!3m1!4b1!4m6!3m5!1s0x108bcf8042c67015:0x4359cb0dad0b408c!8m2!3d3.8483995!4d11.5216853!16s%2Fg%2F11j7k5d5tq?entry=ttu&g_ep=EgoyMDI2MDQxOS4wIKXMDSoASAFQAw%3D%3D"
+              href={GOOGLE_MAPS_URL}
               target="_blank"
               rel="noopener noreferrer"
               className="text-[#C9A84C] hover:underline"
