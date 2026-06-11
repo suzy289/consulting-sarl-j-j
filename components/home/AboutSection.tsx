@@ -66,16 +66,8 @@ export function AboutSection() {
               </motion.div>
 
               <h2 className="mb-6 font-serif text-4xl font-bold leading-tight text-gray-900 md:text-5xl lg:text-6xl">
-                <span>{t("home.about.title.a")} </span>
-                <span className="text-[#9E7B2E]">{t("home.about.title.b")}</span>
-                <span className="relative inline-flex items-center pl-2">
-                  <span className="inline-block whitespace-nowrap">{t("home.about.title.c")}</span>
-                </span>
-              </h2>
-
-              <p className="mb-4 text-xl font-medium text-gray-800/90 md:text-2xl">
                 {aboutSubtitle}
-              </p>
+              </h2>
 
               <p className="mb-4 text-lg leading-relaxed text-gray-700/95">
                 {aboutP1}

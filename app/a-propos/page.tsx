@@ -87,7 +87,7 @@ export default async function AProposPage() {
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <div className="relative aspect-[4/5] w-full min-h-[320px] sm:min-h-[380px] lg:min-h-0">
               <Image
-                src="/images/WhatsApp_Image_2026-04-21_at_19.41.59__1_-removebg-preview.png"
+                src={encodeURI("/images/profil m.png")}
                 alt={copy.founderAlt}
                 fill
                 className="object-contain object-center"

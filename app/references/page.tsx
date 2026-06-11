@@ -108,6 +108,7 @@ export default async function ReferencesPage() {
   ];
   const rotatingTestimonials = copy.rotatingTestimonials;
   const testimonialBorderColors = ["#C9A84C", "#EF4444", "#25D366"];
+  const partnerCount = partners.length;
   const interventionFrameClass =
     "relative aspect-[4/5] sm:aspect-[3/4] overflow-hidden rounded-xl border border-gray-200 bg-[#F5F5F5]";
   const interventionVideoClass = "h-full w-full object-cover object-top";
@@ -131,11 +132,41 @@ export default async function ReferencesPage() {
           aria-hidden
         />
         <div className="relative z-10 mx-auto w-full max-w-7xl px-4 py-16 sm:px-6 md:py-20 lg:px-16 lg:py-24">
-          <div
-            className="pointer-events-none absolute -bottom-14 -left-10 z-10 h-32 w-64 rounded-t-full border-[3px] border-white border-b-0 bg-white"
-            aria-hidden
-          />
-          <div className="max-w-2xl relative z-20">
+          <div className="absolute -bottom-2 left-4 z-20 sm:left-6 lg:left-16">
+            <div className="pointer-events-none absolute -bottom-10 -left-8 -z-10 h-36 w-[min(18rem,72vw)] rounded-t-[100%] border-[3px] border-[#C9A84C]/35 border-b-0 bg-white shadow-[0_-16px_48px_rgba(0,0,0,0.12)]" aria-hidden />
+            <div className="pointer-events-none absolute -bottom-6 left-6 -z-10 h-24 w-44 rounded-t-[100%] border-2 border-[#C9A84C]/20 border-b-0 bg-gradient-to-b from-[#FBFAF7] to-white" aria-hidden />
+            <div className="relative overflow-hidden rounded-2xl border border-[#C9A84C]/30 bg-white/95 px-4 py-4 shadow-[0_20px_50px_rgba(10,10,10,0.18)] backdrop-blur-sm sm:px-6 sm:py-5">
+              <div className="pointer-events-none absolute -right-8 -top-8 h-24 w-24 rounded-full bg-[#C9A84C]/10" aria-hidden />
+              <div className="pointer-events-none absolute -left-4 bottom-0 h-16 w-16 rounded-full border border-[#C9A84C]/15" aria-hidden />
+              <p className="relative mb-3 text-[10px] font-semibold uppercase tracking-[0.28em] text-[#9E7B2E]">
+                J &amp; J Consulting
+              </p>
+              <div className="relative grid grid-cols-3 gap-3 sm:gap-5">
+                <div className="text-center sm:text-left">
+                  <p className="font-serif text-2xl font-bold tabular-nums text-[#0A0A0A] sm:text-3xl">
+                    {partnerCount}+
+                  </p>
+                  <p className="mt-0.5 text-[10px] font-medium uppercase tracking-wide text-gray-500 sm:text-xs">
+                    {copy.heroTrustPartners}
+                  </p>
+                </div>
+                <div className="border-x border-gray-200 px-2 text-center sm:px-3 sm:text-left">
+                  <p className="font-serif text-2xl font-bold tabular-nums text-[#0A0A0A] sm:text-3xl">100%</p>
+                  <p className="mt-0.5 text-[10px] font-medium uppercase tracking-wide text-gray-500 sm:text-xs">
+                    {copy.heroTrustSatisfaction}
+                  </p>
+                </div>
+                <div className="text-center sm:text-left">
+                  <p className="font-serif text-2xl font-bold tabular-nums text-[#0A0A0A] sm:text-3xl">8+</p>
+                  <p className="mt-0.5 text-[10px] font-medium uppercase tracking-wide text-gray-500 sm:text-xs">
+                    {copy.heroTrustExperience}
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div className="max-w-2xl relative z-20 pb-28 sm:pb-32 lg:pb-36">
             <Image
               src="/logo.png"
               alt="J & J Consulting SARL"

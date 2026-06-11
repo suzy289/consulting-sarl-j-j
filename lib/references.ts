@@ -21,6 +21,9 @@ export type ReferenceCopy = {
   interventionsTitle: string;
   interventionsSubtitle: string;
   rotatingTestimonials: ReferenceTestimonial[];
+  heroTrustPartners: string;
+  heroTrustSatisfaction: string;
+  heroTrustExperience: string;
 };
 
 const FR: ReferenceCopy = {
@@ -32,12 +35,15 @@ const FR: ReferenceCopy = {
   partnersSubtitle:
     "Un réseau d'entreprises et d'institutions qui nous accordent leur confiance pour structurer, sécuriser et améliorer leur gestion financière.",
   becomePartner: "Devenir partenaire",
-  clientsTitle: "Témoignages clients",
+  clientsTitle: "Avis des clients",
   clientsSubtitle:
     "Découvrez les retours d'expérience de dirigeants et responsables qui ont constaté une amélioration concrète de leur pilotage financier avec notre accompagnement.",
   interventionsTitle: "Nos interventions",
   interventionsSubtitle:
     "Une sélection de missions illustrant notre capacité à intervenir avec rigueur, discrétion et efficacité auprès d'organisations de secteurs variés.",
+  heroTrustPartners: "Partenaires",
+  heroTrustSatisfaction: "Satisfaction",
+  heroTrustExperience: "Ans d'expérience",
   rotatingTestimonials: [
     {
       id: "r1",
@@ -123,12 +129,15 @@ const EN: ReferenceCopy = {
   partnersSubtitle:
     "A network of companies and institutions that trust us to structure, secure, and improve their financial management.",
   becomePartner: "Become a partner",
-  clientsTitle: "Client testimonials",
+  clientsTitle: "Client reviews",
   clientsSubtitle:
     "Discover feedback from executives and managers who achieved a tangible improvement in financial steering with our support.",
   interventionsTitle: "Our engagements",
   interventionsSubtitle:
     "A selection of missions illustrating our ability to intervene with rigor, discretion, and efficiency across various sectors.",
+  heroTrustPartners: "Partners",
+  heroTrustSatisfaction: "Satisfaction",
+  heroTrustExperience: "Years of experience",
   rotatingTestimonials: [
     {
       id: "r1",

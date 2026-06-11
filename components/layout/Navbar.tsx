@@ -78,7 +78,7 @@ export function Navbar() {
         </div>
         <div className="navbar-contact-strip relative mx-auto h-8 w-full overflow-hidden" aria-label={welcomeTicker}>
           <div className="navbar-contact-ticker flex w-max min-h-8 items-center whitespace-nowrap">
-            {Array.from({ length: 4 }).map((_, i) => (
+            {Array.from({ length: 2 }).map((_, i) => (
               <span
                 key={i}
                 className="inline-flex shrink-0 items-center px-10 text-[10px] font-medium tracking-[0.06em] text-white/85"

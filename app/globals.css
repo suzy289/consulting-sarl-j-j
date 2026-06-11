@@ -747,13 +747,13 @@ body {
   animation: marquee 40s linear infinite;
 }
 
-/* Barre contact mobile (navbar) — gauche → droite (propriétés longues : évite un shorthand réordonné invalide) */
+/* Barre contact (navbar) — droite → gauche */
 @keyframes navbar-contact-ticker {
   0% {
-    transform: translateX(-50%);
+    transform: translateX(0);
   }
   100% {
-    transform: translateX(0);
+    transform: translateX(-50%);
   }
 }
 

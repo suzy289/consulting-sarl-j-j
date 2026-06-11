@@ -13,7 +13,7 @@ export const partners: Partner[] = [
     shortName: "Bestaco",
     logo: "/partners/bestaco.png",
     services:
-      "Prestation de service – Bâtiment – commerce générale – froid – climatisation – restauration – etc…",
+      "Prestations de service – Bâtiment – commerce général – froid – climatisation – restauration – etc…",
   },
   {
     id: "synopsis-erp",

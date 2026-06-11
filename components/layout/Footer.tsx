@@ -74,7 +74,6 @@ export function Footer() {
               </p>
             </Link>
             <p className="mt-1 text-xs leading-snug text-white/90 sm:text-sm">{SITE.tagline}</p>
-            <p className="mt-0.5 text-xs text-white/75 sm:mt-1 sm:text-sm">{SITE.location}</p>
           </div>
 
           <div>
@@ -112,11 +111,6 @@ export function Footer() {
                 </Link>
               </li>
               <li>
-                <Link href="/contact" className="text-xs text-white/70 transition-colors hover:text-[#C9A84C] sm:text-sm">
-                  {t("nav.contact")}
-                </Link>
-              </li>
-              <li>
                 <Link href="/references" className="text-xs text-white/70 transition-colors hover:text-[#C9A84C] sm:text-sm">
                   {t("nav.references")}
                 </Link>
@@ -136,13 +130,6 @@ export function Footer() {
             <h4 className="mb-2 text-xs font-semibold uppercase tracking-widest text-white sm:mb-3 sm:text-sm">
               {t("nav.contact")}
             </h4>
-            <p className="text-xs leading-snug text-white/70 sm:text-sm">{SITE.address}</p>
-            <a
-              href={`mailto:${SITE.email}`}
-              className="mt-1 block text-xs text-white/70 transition-colors hover:text-[#C9A84C] sm:mt-2 sm:text-sm"
-            >
-              {SITE.email}
-            </a>
             <a
               href={WHATSAPP_LINK}
               target="_blank"

@@ -65,7 +65,7 @@ export const MESSAGES: Record<Locale, Messages> = {
     "footer.firm": "Le Cabinet",
     "footer.legal": "Mentions Légales",
     "footer.rights": "Tous droits réservés.",
-    "footer.madeIn": "Site conçu avec rigueur et passion — Yaoundé, Cameroun",
+    "footer.madeIn": "Conçu avec rigueur ❤️ par J & J Consulting",
 
     "contact.hero.kicker": "Contact",
     "contact.hero.title": "Parlons de votre projet",
@@ -186,7 +186,7 @@ export const MESSAGES: Record<Locale, Messages> = {
     "home.values.team1.name": "Direction J & J Consulting",
     "home.values.team1.role": "Pilotage stratégique & qualité de mission",
     "home.values.team1.org": "J & J Consulting SARL",
-    "home.values.team2.name": "Équipe experts",
+    "home.values.team2.name": "Équipe d'experts",
     "home.values.team2.role": "Audit, comptabilité & fiscalité",
     "home.values.team2.org": "Yaoundé, Cameroun",
     "home.values.circleAlt": "J & J Consulting — accompagnement professionnel",
@@ -339,7 +339,7 @@ export const MESSAGES: Record<Locale, Messages> = {
     "footer.firm": "The firm",
     "footer.legal": "Legal notice",
     "footer.rights": "All rights reserved.",
-    "footer.madeIn": "Built with rigor and passion — Yaoundé, Cameroon",
+    "footer.madeIn": "Built with rigor ❤️ by J & J Consulting",
 
     "contact.hero.kicker": "Contact",
     "contact.hero.title": "Let’s talk about your project",
