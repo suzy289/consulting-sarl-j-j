@@ -237,12 +237,12 @@ export function ValuesSection() {
 
                     <div className="mt-4 rounded-2xl bg-white px-3 py-3 shadow-inner">
                       <div className="flex items-center gap-3">
-                        <div className="relative h-10 w-[5.5rem] shrink-0">
+                        <div className="relative h-10 w-[5.5rem] shrink-0 pt-px">
                           <Image
                             src="/logo.png"
-                            alt="J & J Consulting"
+                            alt="J & J Consulting SARL"
                             fill
-                            className="object-contain object-left"
+                            className="object-contain object-left brightness-0"
                             sizes="88px"
                           />
                         </div>
